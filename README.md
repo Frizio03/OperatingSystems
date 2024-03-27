@@ -4,7 +4,7 @@ This repository contains examples and the exercises about the operativeSystem te
 
 ## Examples
 
-* Shell code that counts file with specified properties
+* Shell code that counts file into a directory hierarcy
 
 ## Exercises
 

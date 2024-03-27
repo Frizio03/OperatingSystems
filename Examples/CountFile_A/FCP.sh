@@ -6,12 +6,10 @@
 #Controllo sul numero dei parametri
 case $# in
 1)
-	echo DEBUG-Parametri OK
-;;
+	echo DEBUG-Parametri OK ;;
 *)
 	echo ERRORE: $# passed, 1 requested
-	exit 1;
-;;
+	exit 1 ;;
 esac
 
 #Controllo che il parametro sia percorso assoluto

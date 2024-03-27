@@ -5,5 +5,6 @@ For more detailse read the script comments.
 
 ## How to execute the script
 ```console
- $ FCP.sh `pwd`/ger
+ $ chmod u+x ./FCP.sh
+ $ ./FCP.sh `pwd`/ger
  ```
