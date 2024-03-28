@@ -1,5 +1,22 @@
 # Examples
 
+## For cycle examples
+* File arguments iteration
+* Directory elements iteration 
+
+Exeute using:
+```console
+$ sh FOR.sh Arg_001 Arg_002 Arg_003
+```
+
+## Case examples
+The CASE consturct is often used for checking arguments format (absolute or relative arguments path format)
+
+Exeute using:
+```console
+$ sh CASE.sh /nomeDir/nomeFile ./nomeFile nomeFile
+```
+
 ## Counting files into a directory hierarcy
 * _METHOD A_: Counting files using a temporary file to save file data (file path)
 * _METHOD B_: Counting files using an environment variable and the script return value
