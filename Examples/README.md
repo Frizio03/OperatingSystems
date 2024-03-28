@@ -1,6 +1,6 @@
-# Examples
+# SHELL - Examples
 
-## For cycle examples
+## For cycle use
 * File arguments iteration
 * Directory elements iteration 
 
@@ -9,7 +9,7 @@ Exeute using:
 $ sh FOR.sh Arg_001 Arg_002 Arg_003
 ```
 
-## Case examples
+## Case construct use
 The CASE consturct is often used for checking arguments format (absolute or relative arguments path format)
 
 Exeute using:
