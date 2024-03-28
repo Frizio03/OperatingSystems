@@ -4,6 +4,7 @@ This repository contains examples and the exercises about the operativeSystem te
 
 ## Examples
 
+* FOR and CASE construct use
 * Shell code that counts file into a directory hierarcy
 
 ## Exercises
