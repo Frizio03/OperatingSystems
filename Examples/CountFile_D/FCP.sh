@@ -1,38 +1,53 @@
 #!/bin/sh
-#FCP.sh dirass 
-#versione che usa un file temporaneo per memorizzare il valore del conteggio
 
-#la parte dei controlli e' uguale in tutte le versioni!
-case $# in	#controlliamo di avere esattamente un parametro 
-1)	echo DEBUG-OK numero di parametri $#;;
-*)      echo Errore nel numero di parametri: $# non numero giusto di parametri! Usage is $0 dirass
-	exit 1;;
+#Esempio del conteggio dei file in una gerarchia
+#Metodo C: utilizzo di una variabile di shell locale e il valore di ritorno di un file comandi
+
+#Controllo sul numero dei parametri
+case $# in
+1)
+	echo DEBUG-Parametri OK ;;
+*)
+	echo ERRORE: $# passed, 1 requested
+	exit 1 ;;
 esac
 
-#se arriviamo qui vuol dire che e' stato passato un solo parametro
-#ora controlliamo che sia il nome assoluto di una gerarchia e quindi directory traversabile
+#Controllo che il parametro sia percorso assoluto
 case $1 in
-/*) if test ! -d $1 -o ! -x $1	#se nome assoluto, controlliamo sia una dir traversabile
-    then
-    	echo $1 non directory o non traversabile
-	exit 2
-    fi;;
-*)  echo $1 non nome assoluto; exit 3;;
+/*)
+	if test ! -d $1 -o ! -x $1
+	then
+		echo ERRORE: il percorso $1 non è directory oppure non è traversabile
+		exit 2;
+	fi
+;;
+*)
+	echo ERRORE: $1 NON è in forma assoluta
+	exit 3;
+;;
 esac
 
-#se arriviamo qui vuol dire che sono finiti i controlli sui parametri ed e' andato tutto bene
-#quindi possiamo passare a settare la var. di ambiente PATH (con export)
+#Superati i controlli procedo ad andare avanti
+echo DEBUG-Directory traversabile OK
+
+#Settaggio della PATH
 PATH=`pwd`:$PATH
 export PATH
 
-conta=0 	#definiamo una variabile per il conteggio
-echo $conta > /tmp/contatmp	#scriviamo il valore di questa variabile in un file temporaneo
+#Definiamo una variabile per il conteggio
+conta=0
 
-#invocazione del secondo file comandi
+#Scriviamo il valore di questa variabile in un file temporaneo
+echo $conta > /tmp/contatmp
+
+#Invocazione del file comandi ricorsivo
 FCR.sh $*   #$* ===> $1
 
-read conta < /tmp/contatmp 	#leggiamo dal file temporaneo il conteggio e lo inseriamo nella variabile conta
-echo Il numero di file totale della gerarchia = $conta 
-#OSSERVAZIONE: NON SI HA ALCUNA INFORMAZIONE SU QUALI SIANO I NOMI DEI FILE TROVATI!
+#Lettura dal file temporaneo il conteggio e inserimento nella variabile conta
+read conta < /tmp/contatmp
 
-rm /tmp/contatmp		#cancelliamo il file temporaneo
+echo Il numero di file totale della gerarchia = $conta 
+#OSSERVAZIONE: Non si possiede nessuna informazione riguardo i nomi dei file trovati
+
+#Rimozione del file temporaneo
+rm /tmp/contatmp

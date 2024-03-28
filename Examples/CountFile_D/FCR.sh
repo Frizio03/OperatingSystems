@@ -1,28 +1,37 @@
 #!/bin/sh
-#FCR.sh
-#file comandi ricorsivo che scrive sul file temporaneo il valore del conteggio
 
-cd $1	#ci spostiamo nella directory in cui dobbiamo fare la ricerca per questa invocazione
+#Mi sposto nella directory di inizio della gerarchia
+cd $1
 
-read conta < /tmp/contatmp	#leggiamo il conteggio attuale in una variabile di shell
+#Lettura dal file temporaneo il conteggio e inserimento nella variabile conta
+read conta < /tmp/contatmp
 
-for i in *	#per tutti i file/dir
-do
-	if test -f $i	#se e' un file, dato che dobbiamo SOLO contare i file!
-	then 	
-		conta=`expr $conta + 1`	#incrementiamo la variabile di shell
-	fi
-done
-#inseriamo una stampa di puro debug: UNA VOLTA VERIFICATO IL FUNZIONAMENTO POTREMO COMMENTARLA!
-echo DEBUG-in `pwd` conta = $conta
-echo $conta > /tmp/contatmp	#aggiorniamo il conteggio memorizzato nel file temporaneo
-
-#passiamo ora alla parte ricorsiva
+#Per ciascun elemento della directory...
 for i in *
 do
+	#...se l'elemento è un file...
+	if test -f $i
+	then 	
+		#...incremento il contatore
+		conta=`expr $conta + 1`
+	fi
+done
+
+#Stampa di debug da commenatare dopo il test
+echo DEBUG-in `pwd` conta = $conta
+
+#Aggiornamento variabile nel file temporaneo
+echo $conta > /tmp/contatmp
+
+#Per ogni elemento della directory corrente...
+for i in *
+do
+	#... se l'elemento è una directory traversabile...
 	if test -d $i -a -x $i
 	then
-		FCR.sh `pwd`/$i			#ATTENZIONE: il nome della dir va sempre passato in forma assoluta!
-		read conta < /tmp/contatmp	#leggiamo il valore del conteggio per la sotto-gerarchia appena esplorata
+		#... invocazione ricorsiva del file con parametro in forma assoluta
+		FCR.sh `pwd`/$i
+		#Lettura del conteggio della sotto-gerarchia esplorata
+		read conta < /tmp/contatmp
 	fi
 done
