@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #Esempio del conteggio dei file in una gerarchia
-#Metodo B: utilizzo di una variabile di ambiente e del valore di ritorno di un file comandi
+#Metodo C: utilizzo di una variabile di shell locale e il valore di ritorno di un file comandi
 
 #Controllo sul numero dei parametri
 case $# in
@@ -34,14 +34,8 @@ echo DEBUG-Directory traversabile OK
 PATH=`pwd`:$PATH
 export PATH
 
-#Inizializzazione variabile per il conteggio ed export
-conta=0
-export conta
-#Ora la variabile conta e' una variabile copiata in ogni sottoshell
-
 #Invocazione del file comandi ricorsivo
 FCR.sh $*   #$* ===> $1
 
 echo Il numero di file totale della gerarchia = $?
-#N.B. Non si puo' usare il valore di conta che in questo shell è uguale a 0!!!
 #OSSERVAZIONE: Non si possiede nessuna informazione riguardo i nomi dei file trovati

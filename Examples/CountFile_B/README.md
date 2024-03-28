@@ -1,7 +1,6 @@
 # Count file - Method B
 
-This code counts the number of file into a directory hierarchy saving data into an envinronment variable using
-a command file return value.
+This code counts the number of file into a directory hierarchy saving data into an envinronment variable using a command file return value.
 For more detailse read the script comments.
 
 ## How to execute the script

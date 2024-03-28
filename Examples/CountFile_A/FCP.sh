@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #Esempio del conteggio dei file in una gerarchia
-#Metodo 1: utilizzo di un file temporaneo per salvare i percorsi
+#Metodo A: utilizzo di un file temporaneo per salvare i percorsi
 
 #Controllo sul numero dei parametri
 case $# in
