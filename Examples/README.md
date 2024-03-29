@@ -4,7 +4,7 @@
 * File arguments iteration
 * Directory elements iteration 
 
-Exeute using:
+Execute using:
 ```console
 $ sh FOR.sh Arg_001 Arg_002 Arg_003
 ```
@@ -12,7 +12,7 @@ $ sh FOR.sh Arg_001 Arg_002 Arg_003
 ## Case construct use
 The CASE consturct is often used for checking arguments format (absolute or relative arguments path format) but also to check the argument type (number, string, etc.)
 
-Exeute using:
+Execute using:
 ```console
 $ sh CASE.sh /nomeDir/nomeFile ./nomeFile nomeFile 123 provaminuscole
 ```
