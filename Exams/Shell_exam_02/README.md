@@ -7,8 +7,8 @@ La parte in Shell deve prevedere due parametri: il primo deve essere il nome ass
 **ATTENZIONE**: il comando `wc -l` conta il  numero di caratteri `\n` che trova in un file, verificare come il proprio editor di testo utilizzato gestisce gli endline dell'ultima riga!
 
 L'editor di testo può:
-	a) inserire autmaticamente e nascondere `\n` al termine dell'ultima riga
-	b) non inserire automaticamente `\n` al termine dell'utlima riga e, in caso di inserimento manuale mostrare una ultreriore riga vuota all'utente (che non sarà considerata dal `wc -l`)
+* inserire autmaticamente e nascondere `\n` al termine dell'ultima riga
+* non inserire automaticamente `\n` al termine dell'utlima riga e, in caso di inserimento manuale mostrare una ultreriore riga vuota all'utente (che non sarà considerata dal `wc -l`)
 
 Execute using:
 ```console
