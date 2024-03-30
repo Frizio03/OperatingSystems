@@ -24,6 +24,9 @@ do
 			#Salviamo il nome relativo del file
 			fileList="$fileList $e"
 			echo "DEBUG-Trovato file $e idoneo"
+
+			#Aggiorno l'elenco dei file idonei
+			echo `pwd`/$e >> $4
 		fi
 	fi
 done
@@ -36,9 +39,6 @@ then
 
 	#Aggiorno l'elenco delle directory idonee
 	echo `pwd` >> $3
-
-	#Aggiorno l'elenco dei file idonei
-	echo $fileList >> $4
 fi
 
 #Esplorazione ricorsiva: per ogni elemento e della directory corrente...

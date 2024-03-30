@@ -52,13 +52,14 @@ echo -----------------------------------------------------
 echo ELENCO DIRECTORY IDONEE
 echo -----------------------------------------------------
 cat /tmp/dirs$$
+echo
 
 #Stampo i nomi (assoluti dei file idonei)
-echo
 echo -----------------------------------------------------
 echo "ELENCO NOMI (assoluti) FILE IDONEI"
 echo -----------------------------------------------------
 cat /tmp/files$$
+echo
 
 #Rimozione dei file temporanei
 rm /tmp/dirs$$
