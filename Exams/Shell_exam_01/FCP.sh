@@ -56,18 +56,24 @@ export PATH
 for i in $*
 do
 	echo Eseguo la fase su $i
-	FCR.sh $primoPAr $i /tmp/conta$$
+	FCR.sh $primoPar $i /tmp/conta$$
 done
 
 #Terminate le N fasi si riposrta il numero totale di file che soddisfano la specifica
-echo
+echo ---------------------------------------------------------------------
 echo Il numero di file che soddisfano la specifica: `wc -l < /tmp/conta$$`
-echo
+echo ---------------------------------------------------------------------
 
 #Stampa dei vari file che soddisfano la specifica
+echo ---------------------------------------------------------------------
+echo Stampa del contenuto dei vari file
+echo ---------------------------------------------------------------------
+
 for line in `cat /tmp/conta$$`
 do
-	#Todo
+	echo
+	echo Stampo il contenuto di: $line
+	cat $line
 done
 
 #Rimozione del file temporaneo
