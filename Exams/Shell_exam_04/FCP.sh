@@ -52,11 +52,7 @@ esac
 
 #Controllo sul terzo parametro (singolo carattere)
 case $4 in
-[a-z])
-	echo "DEBUG-Secondo parametro ok";;
-[A-Z])
-	echo "DEBUG-Secondo parametro ok";;
-[0-9])
+?)
 	echo "DEBUG-Secondo parametro ok";;
 *)
 	echo "ERRORE: $4 non singolo carattere"

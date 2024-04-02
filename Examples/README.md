@@ -14,7 +14,7 @@ The CASE consturct is often used for checking arguments format (absolute or rela
 
 Execute using:
 ```console
-$ sh CASE.sh /nomeDir/nomeFile ./nomeFile nomeFile 123 provaminuscole
+$ sh CASE.sh /nomeDir/nomeFile ./nomeFile nomeFile 123 . provaminuscole
 ```
 
 ## Counting files into a directory hierarcy

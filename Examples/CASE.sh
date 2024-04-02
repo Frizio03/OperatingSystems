@@ -56,3 +56,18 @@ do
 		echo OK! Questo nome contiene solo lettere minuscole: $par ;;
 	esac
 done
+
+echo ----------------------------------------------------------------------------
+echo Controllo se il parametro passato è una stringa di sole lettere minuscole
+echo ----------------------------------------------------------------------------
+
+for par in $*
+do
+	case $par in
+	?)
+		echo OK! Questo parametro passato è un carattere singolo: $par ;;
+	*)
+		echo MALE! Questo parametro non è un singolo carattere: $par ;;
+	esac
+done
+
