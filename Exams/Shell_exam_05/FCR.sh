@@ -26,6 +26,6 @@ do
 	#Se l'elemento è una directory traversabile
 	if test -d $i -a -x $i
 	then
-		FCR.sh $1 $i $3
+		FCR.sh $1 `pwd`/$i $3
 	fi
 done
