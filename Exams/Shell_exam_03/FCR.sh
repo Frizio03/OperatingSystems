@@ -43,6 +43,6 @@ for i in *
 do
 	if test -d $i -a -x $i
 	then
-		FCR.sh $i $2 $3
+		FCR.sh `pwd`/$i $2 $3
 	fi
 done
