@@ -57,6 +57,12 @@ do
 		echo
 		echo Inserire un valore compreso fra 1 e $2
 		read X
+		case $X in
+		*[!0-9]*)
+			echo ERRORE: $X non è un numero
+			X=0;;
+		*);;
+		esac
 	done
 
 	#Stampa della riga X del file e del suo nome assoluto
