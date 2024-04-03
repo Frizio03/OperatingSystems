@@ -44,6 +44,6 @@ do
 	if test -d $i -a -x $i
 	then
 		echo "DEBUG-Procedo ad esplorare la directory $i"
-		FCR.sh $i $2 $3 $4 $5
+		FCR.sh `pwd`/$i $2 $3 $4 $5
 	fi
 done
