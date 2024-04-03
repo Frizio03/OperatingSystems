@@ -1,8 +1,8 @@
-## Content index
+## Indice dei contenuti
 
-* Shell_exam_01 - *April 07 2017*
-* Shell_exam_02 - *February 15 2017*
-* Shell_exam_03 - *January 18 2017*
-* Shell_exam_04 - *January 17 2018*
-* Shell_exam_05 - *April 17 2015*
-* Shell_exam_06 - *February 09 2015*
+* Shell_exam_01 - Creazione di file sorted e loro ubicazione in N gerarchie
+* Shell_exam_02 - Ricerca file con X linee e almeno un carattere numerico
+* Shell_exam_03 - Ricerca di tutte le directory con nome DR con almeno un file con carattere numerico al loro interno
+* Shell_exam_04 - Ricerca delle directory con file di H linee e occorrenza del carattere Cx al loro interno
+* Shell_exam_05 - Ricerca dei file con X linee che terminano con 't' in N gerarchie
+* Shell_exam_06 - 
