@@ -10,17 +10,23 @@ fi
 #Controllo sul primo parametro (percorso assoluto)
 case $1 in 
 /*)
-	echo "DEBUG-ok nome assoluto";;
+	echo "DEBUG-ok nome assoluto"
+	if test ! -d $1 -o ! -x $1
+	then
+		echo ERRORE: $1 non è directory oppure directory non traversabile
+		exit 2;
+	fi
+	;;
 *)
 	echo ERRORE: $1 non è nome assoluto
-	exit 2;;
+	exit 3;;
 esac
 
 #Controllo sul secondo parametro (numero intero positivo)
 case $2 in
 *[!0-9]*)
 	echo ERRORE: $2 non è numero intero positivo
-	exit 3;;
+	exit 4;;
 *)
 	echo "DEBUG-ok numero intero positivo";;
 esac

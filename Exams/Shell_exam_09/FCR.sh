@@ -36,19 +36,14 @@ done
 #Se la directory risulta idonea
 if test $idonea -eq 1
 then
-	#Aggiorno il conteggio globale
-	n=`cat $3`
-	n=`expr $n + 1`
-	echo $n > $3
-
 	#Aggiorno l'elenco dei file
 	for f in *
 	do
-		echo `pwd`/$f >> $4
+		echo `pwd`/$f >> $3
 	done
 
 	#Aggiungo la directory all'elenco
-	echo `pwd` >> $5
+	echo `pwd` >> $4
 fi
 
 #Esplorazione ricorsiva sotto-directory
@@ -57,6 +52,6 @@ do
 	#Controllo se l'elemento è directory traversabile
 	if test -d $i -a -x $i
 	then
-		FCR.sh `pwd`/$i $2 $3 $4 $5
+		FCR.sh `pwd`/$i $2 $3 $4
 	fi
 done

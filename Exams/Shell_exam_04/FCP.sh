@@ -11,10 +11,15 @@ fi
 case $1 in
 /*)
 	echo "OK: nome assoluto $1"
+	if test ! -d $1 -o ! -x $1
+	then
+		echo "ERRORE: $1 directory inesistnte o non traversabile"
+		exit 2
+	fi
 ;;
 *)
 	echo "ERRORE: $1 non è nome assoluto"
-	exit 2
+	exit 3
 ;;
 esac
 
@@ -22,28 +27,28 @@ esac
 case $2 in
 *[!0-9]*)
 	echo "ERRORE: $2 non numerico o non positivo"
-	exit 3;;
+	exit 4;;
 *)
 	if test $2 -eq 0
   then
   	echo "ERRORE: $2 nullo, deve essere positivo"
-  	exit 4;
+  	exit 5;
   else
   	echo "DEBUG-Secondo parametro ok";
   fi
 ;;
 esac
 
-#Controllo sul secondo parametro (intero positivo)
+#Controllo sul terzo parametro (intero positivo)
 case $3 in
 *[!0-9]*)
 	echo "ERRORE: $3 non numerico o non positivo"
-	exit 3;;
+	exit 4;;
 *)
 	if test $3 -eq 0
   then
   	echo "ERRORE: $3 nullo, deve essere positivo"
-  	exit 4;
+  	exit 5;
   else
   	echo "DEBUG-Secondo parametro ok";
   fi
@@ -56,7 +61,7 @@ case $4 in
 	echo "DEBUG-Secondo parametro ok";;
 *)
 	echo "ERRORE: $4 non singolo carattere"
-	exit 5;;
+	exit 6;;
 esac
 
 #Path setting

@@ -13,10 +13,16 @@ do
 	#Controllo sul nome (assoluto)
 	case $par in
 	/*)
-		echo "DEBUG-Ok nome asosluto";;
+		echo "DEBUG-Ok nome asosluto"
+		if test ! -d $par -o ! -x $par
+		then
+			echo ERRORE: $par directory inesistente o non traversabile
+			exit 2
+		fi
+		;;
 	*)
 		echo ERRORE: $par non è nome assoluto
-		exit 2;;
+		exit 3;;
 	esac
 done
 

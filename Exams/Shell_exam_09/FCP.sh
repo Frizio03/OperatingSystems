@@ -52,7 +52,6 @@ PATH=`pwd`:$PATH
 export PATH
 
 #Creazione file temporaneo
-> /tmp/contaDir$$
 > /tmp/files$$
 > /tmp/dir$$
 
@@ -67,7 +66,7 @@ do
 		break;
 	fi
 
-	FCR.sh $ger $X /tmp/countDir$$ /tmp/files$$ /tmp/dir$$
+	FCR.sh $ger $X /tmp/files$$ /tmp/dir$$
 
 	#Aggiorno in contatore
 	count=`expr $count + 1`
@@ -76,7 +75,7 @@ done
 #Stampo il numero di directory idonee
 echo
 echo --------------------------------------------------------
-echo Directory idonee trovate: `cat /tmp/countDir$$`
+echo Directory idonee trovate: `wc -l < /tmp/dir$$`
 echo --------------------------------------------------------
 
 #Stampa delle directory idonee e dei file
@@ -93,6 +92,5 @@ do
 done
 
 #Rimozione file temporanei
-rm /tmp/contaDir$$
 rm /tmp/files$$
 rm /tmp/dir$$

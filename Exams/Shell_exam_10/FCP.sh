@@ -42,20 +42,19 @@ PATH=`pwd`:$PATH
 export PATH
 
 #Creazione file temporanei
-> /tmp/conta$$
 > /tmp/files$$
 
 #Esplorazione ricorsiva di ogni gerarchia
 for ger in $*
 do
 	echo ESPLORAZIONE DI $ger
-	FCR.sh $ger $Y /tmp/conta$$ /tmp/files$$
+	FCR.sh $ger $Y /tmp/files$$
 done
 
 #Stampa dei risultati
 echo
 echo -------------------------------------------------
-echo Numero di file creati: `cat /tmp/conta$$`
+echo Numero di file creati: `wc -l < /tmp/files$$`
 echo -------------------------------------------------
 
 for f in `cat /tmp/files$$`
@@ -66,5 +65,4 @@ do
 done
 
 #Rimozione file temporanei
-rm /tmp/conta$$
 rm /tmp/files$$

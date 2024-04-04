@@ -22,7 +22,7 @@ do
 				> $e.NOquinta
 				
 				#Aggiunta del file all'elenco
-				echo `pwd`/$e.NOquinta >> $4
+				echo `pwd`/$e.NOquinta >> $3
 			else
 				#Ricavo la quinta linea del file (se esiste)
 				QUINTA=`head -5 $e | tail -1`
@@ -31,13 +31,8 @@ do
 				echo $QUINTA > $e.quinta
 
 				#Aggiunta del file all'elenco
-				echo `pwd`/$e.quinta >> $4
+				echo `pwd`/$e.quinta >> $3
 			fi
-
-			#Aggiornamento del contatore
-			n=`cat $3`
-			n=`expr $n + 1`
-			echo $n > $3
 		fi
 	fi
 done
@@ -50,6 +45,6 @@ do
 	then
 		echo ESPLORAZIONE DI $i
 		#Invocazione ricorsiva
-		FCR.sh `pwd`/$i $2 $3 $4
+		FCR.sh `pwd`/$i $2 $3
 	fi
 done

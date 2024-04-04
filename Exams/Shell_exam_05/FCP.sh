@@ -26,10 +26,15 @@ for par in $*
 do
 	case $par in
 	/*)
-		echo DEBUG-OK parametro assoluto $par ;;
+		echo "DEBUG-OK parametro assoluto $par"
+		if test ! -d $par -o ! -x $par
+		then
+			echo ERRORE: $par non è directory oppure directory non traversabile
+			exit 3
+		fi;;
 	*)
 		echo ERRORE: $par non nome assoluto
-		exit 3;;
+		exit 4;;
 	esac
 done
 
