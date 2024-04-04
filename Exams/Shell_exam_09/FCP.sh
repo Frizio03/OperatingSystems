@@ -20,7 +20,12 @@ do
 		#Controllo se N-esimo parametro è percorso assoluto
 		case $par in
 		/*)
-			echo "DEBUG-ok nome assoluto";;
+			echo "DEBUG-ok nome assoluto"
+			if test ! -d $par -o ! -x $par
+			then
+				echo ERRORE: $par directory inesistente o non traversabile
+				exit 4
+			fi;;
 		*)
 			echo ERRORE: $par non è nome assoluto
 			exit 2;;
