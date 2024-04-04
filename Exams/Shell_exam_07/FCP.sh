@@ -10,10 +10,15 @@ fi
 #Controllo sul primo parametro (nome assoluto)
 case $1 in
 /*)
-	echo "DEBUG-OK nome assoluto";;
+	echo "DEBUG-OK nome assoluto"
+	if test ! -d $1 -o -x $1
+	then
+		echo ERRORE: $1 directory inesistente o non traversabile
+		exit 2;
+	fi;;
 *)
 	echo ERRORE: $1 non è nome assoluto
-	exit 2;;
+	exit 3;;
 esac
 
 #Controlli superati - path setting
