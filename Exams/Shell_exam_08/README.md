@@ -6,3 +6,8 @@ Il comportamento atteso dal programma, dopo il controllo dei parametri, è organ
 Il programma, per ognuna delle **N** fasi, deve esplorare la gerarchia **Gi** specificata - tramite un file comandi ricorsivo, FCR.sh - e deve contare globalmente per ogni gerarchia **Gi** tutti i file leggibili che soddisfano la seguente specifica: il contenuto del file deve essere tale per cui tutte le sue linee iniziano con il carattere ‘a’.
 Al termine di tutte le **N** fasi, per ognuna delle gerarchie **Gi**, si deve riportare sullo standard output il nome della gerarchia **Gi** e il numero totale di file di quella gerarchia che soddisfano la specifica precedente (file trovati);
 inoltre, si deve riportare sullo standard output il nome assoluto di ogni file trovato chiedendo contestualmente all’utente un numero **X**: tale numero deve essere usato per riportare sullo standard output le prime **X linee** del file trovato corrente.
+
+Execute using
+```console
+$ ./FCP.sh `pwd`/ger1 `pwd`/ger2
+```
