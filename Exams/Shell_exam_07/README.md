@@ -6,3 +6,8 @@ Il programma nella fase A deve esplorare la gerarchia **G** specificata - tramit
 Al termine dell’intera esplorazione ricorsiva di **G**, si deve riportare sullo standard output il numero di livelli totali della gerarchia **G**. 
 Quindi il programma passa nella fase B. In questa fase B, il programma deve chiedere all’utente un numero pari compreso fra 1 e il numero di livelli totali calcolati nella fase A.
 Successivamente si deve reinvocare FCR in modo da cercare nella gerarchia **G** specificata (inclusa la radice) tutti i direttori che si trovano al livello corrispondente al numero pari specificato dall’utente e per ognuno di essi si devono visualizzare **TUTTE** le informazioni associate agli elementi presenti esclusi i file nascosti.
+
+Execute using:
+```console
+$ ./FCP.sh `pwd`/ger
+```
