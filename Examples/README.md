@@ -22,3 +22,8 @@ $ sh CASE.sh /nomeDir/nomeFile ./nomeFile nomeFile 123 . provaminuscole
 * _METHOD B_: Counting files using an environment variable and the script return value
 * _METHOD C_: Counting files using a local shell variable and the script return value
 * _METHOD D_: Counting files using using a temporary file to save the counter value
+
+## Counting levels of a hierarcy
+Counting levels of a hierarcy using a temporary file and the recursive script return value.
+
+![hierarcy](https://www.google.com/url?sa=i&url=https%3A%2F%2Fdocs.oracle.com%2Fcd%2FE19620-01%2F802-7642%2Fx-66l98%2Findex.html&psig=AOvVaw0ASmDlYwBfHYljIOh4PbKh&ust=1712339595909000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPDViZ-QqYUDFQAAAAAdAAAAABAE)
