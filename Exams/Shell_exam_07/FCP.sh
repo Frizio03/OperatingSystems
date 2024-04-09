@@ -29,15 +29,15 @@ export PATH
 count=0; step=1
 
 #Inserisco il valore 0 nel file temporaneo
-echo $count > /tmp/levelCount
+echo $count > /tmp/levelCount$$
 
 #FASE A: conteggio dei livelli della gerarchia utilizzando valore di ritorno di FCR.sh
 
 #Invocazione ricorsiva
-FCR.sh $1 $count $step /tmp/levelCount
+FCR.sh $1 $count $step /tmp/levelCount$$
 
 #Lettura del numero di livelli
-NL=`cat /tmp/levelCount`
+NL=`cat /tmp/levelCount$$`
 
 echo "DEBUG - Fine fase A - livelli rilevati: $NL"
 
@@ -83,4 +83,4 @@ FCR.sh $1 $count $step $val
 #La stampa avviene grazie al file comandi ricorsivo
 
 #Rimozione file temporaneo
-rm /tmp/levelCount
+rm /tmp/levelCount$$

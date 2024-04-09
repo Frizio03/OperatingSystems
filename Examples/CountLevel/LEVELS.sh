@@ -29,16 +29,16 @@ export PATH
 count=0
 
 #Creazione del file temporaneo per salvare il numero livelli
-echo $count > /tmp/levelCount
+echo $count > /tmp/levelCount$$
 
 #Invocazione ricorsiva
-FCR.sh $1 $count /tmp/levelCount
+FCR.sh $1 $count /tmp/levelCount$$
 
 #Stampa del risultato
 echo -----------------------------------------
-echo La gerarchia possiede `cat /tmp/levelCount` livelli
+echo La gerarchia possiede `cat /tmp/levelCount$$` livelli
 echo -----------------------------------------
 echo
 
 #Rimozione del file temporaneo
-rm /tmp/levelCount
+rm /tmp/levelCount$$
