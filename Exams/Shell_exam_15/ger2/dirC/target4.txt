@@ -1,0 +1,4 @@
+-------- FILE 6 ---------
+questo file contiene
+meno di 10
+lineee quindi è idoneo

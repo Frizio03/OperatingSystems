@@ -14,3 +14,4 @@
 * Shell_exam_12 - *3 Giugno 2020*
 * Shell_exam_13 - *22 Aprile 2021*
 * Shell_exam_14 - *13 Aprile 2022*
+* Shell_exam_15 - Ricerca dei file '.txt' con linee < X e salvataggio lunghezza massima in variabile L
