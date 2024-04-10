@@ -67,7 +67,7 @@ echo ---------------------------------------------------------
 c=0
 
 #Scorro ogni linea del file temporaneo (ogni file trovato)
-for line in `cat /tmp/conta$$`
+for str in `cat /tmp/conta$$`
 do
 	#Aggiornamento del contatore
 	c=`expr $c + 1`
@@ -76,15 +76,15 @@ do
 	if test `expr $c % 2` -ne 0
 	then
 		#Salvo il nome del file
-		fileName=$line
+		fileName=$str
 
 		#Stampo il nome assoluto del file
 		echo 
-		echo ">>>> FILE: $line"
+		echo ">>>> FILE: $str"
 	#Se la linea è pari --> numero linee
 	else
 		#Stampo le linee del file
-		echo ">>>> Lines: $line"
+		echo ">>>> Lines: $str"
 		echo
 
 		#Inizializzazione variabile
@@ -92,7 +92,7 @@ do
 
 		while test $X -eq 0
 		do
-			echo Inserire un numero compreso fra 1 e $line:
+			echo Inserire un numero compreso fra 1 e $str:
 			read X
 
 			case $X in
@@ -102,7 +102,7 @@ do
 			;;
 			*)
 				#Se X è maggiore del numero di linee
-				if test $X -gt $line
+				if test $X -gt $str
 				then
 					echo ERRORE: numero fuori range
 					X=0

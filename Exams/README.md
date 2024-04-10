@@ -10,7 +10,7 @@
 * Shell_exam_08 - Conteggio per ogni sotto-gerarchia dei file le cui righe iniziano tutte per 'a'
 * Shell_exam_09 - Conto delle directory che contengono solo file con almeno X linee
 * Shell_exam_10 - Estrazione della quinta linea di file con almeno Y linee
-* Shell_exam_11 - *5 Aprile 2019*
+* Shell_exam_11 - Ricerca dei file con nome F e almeno 4 linee in N gerarchie
 * Shell_exam_12 - *3 Giugno 2020*
 * Shell_exam_13 - *22 Aprile 2021*
 * Shell_exam_14 - *13 Aprile 2022*
