@@ -17,6 +17,16 @@ Execute using:
 $ sh CASE.sh /nomeDir/nomeFile ./nomeFile nomeFile 123 . provaminuscole
 ```
 
+## Arguments list control
+* Applying controls on the first argument and on the others
+* Applying controls on N arguments and on the last argument
+
+Execute using:
+```console
+$ sh PARAM_1.sh 120 /nomeDir/nomeFile ./nomeFile nomeFile
+$ sh PARAM_2.sh /nomeDir/nomeFile ./nomeFile nomeFile 120
+```
+
 ## Counting files into a directory hierarcy
 * _METHOD A_: Counting files using a temporary file to save file data (file path)
 * _METHOD B_: Counting files using an environment variable and the script return value
