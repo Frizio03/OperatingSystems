@@ -7,12 +7,15 @@ This repository contains examples and the exercises about the operativeSystem te
 * FOR and CASE construct use
 * Shell code that counts file into a directory hierarcy
 * Shell code that counts hierarcy levels
+* Arguments list controls and format checks
 
 ## Exercises
 
 * 01 - Basic shell commands
 * 02 - Shell commands for files and sh scripts
 * 03 - Cycles and flow control structures (if, case, for, while)
+* 04 - Link, date, background process
+* 05 - Exam examples (see Exams directory)
 
 ## Exams
 
