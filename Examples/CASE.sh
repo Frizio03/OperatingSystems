@@ -58,7 +58,7 @@ do
 done
 
 echo ----------------------------------------------------------------------------
-echo Controllo se il parametro passato è una stringa di sole lettere minuscole
+echo Controllo se il parametro passato è un singolo carattere
 echo ----------------------------------------------------------------------------
 
 for par in $*
