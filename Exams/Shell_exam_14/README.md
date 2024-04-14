@@ -17,7 +17,7 @@ Quindi, al termine di tutte le **Q** fasi, si deve procedere ad un controllo sui
 
 Execute using
 ```console
-$ ./FCP.sh 4 `pwd`/ger1 `pwd`/ger2
+$ ./FCP.sh 5 `pwd`/ger1 `pwd`/ger2
 ```
 
 ### NOTA
