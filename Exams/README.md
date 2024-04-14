@@ -12,6 +12,6 @@
 * Shell_exam_10 - Estrazione della quinta linea di file con almeno Y linee
 * Shell_exam_11 - Ricerca dei file con nome F e almeno 4 linee in N gerarchie
 * Shell_exam_12 - Ricerca di direcetory con nome di 3 caratteri con primo e ultimo uguali a C passato
-* Shell_exam_13 - *22 Aprile 2021*
+* Shell_exam_13 - Ricerca di directory che contengono file con estensione passata come parametro
 * Shell_exam_14 - *13 Aprile 2022*
 * Shell_exam_15 - Ricerca dei file '.txt' con linee < X e salvataggio lunghezza massima in variabile L
