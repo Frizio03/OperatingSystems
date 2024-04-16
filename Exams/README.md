@@ -15,3 +15,4 @@
 * Shell_exam_13 - Ricerca di directory che contengono file con estensione passata come parametro
 * Shell_exam_14 - Ricerca di file con X linee in N gerarchie e confronto dei file della prima gerarchia con tutti gli altri
 * Shell_exam_15 - Ricerca dei file '.txt' con linee < X e salvataggio lunghezza massima in variabile L
+* Shell_exam_16 - Contare i file con estensione S1 ed S2 passate all'interno di Q gerachie
