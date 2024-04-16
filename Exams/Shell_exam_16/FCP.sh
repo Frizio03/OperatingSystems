@@ -109,12 +109,12 @@ then
 	
 	#Stampo nome assoluto del X-esimo file con S1
 	echo
-	echo "Nome assoluto del $X-esimo file con estensione $S1:"
+	echo "Nome assoluto del $X° file con estensione $S1:"
 	head -$X < /tmp/nomiAssoluti$$-$S1 | tail -1
 
 	#Stampo nome assoluto del X-esimo file con S2
 	echo
-	echo "Nome assoluto del $X-esimo file con estensione $S2:"
+	echo "Nome assoluto del $X° file con estensione $S2:"
 	head -$X < /tmp/nomiAssoluti$$-$S2 | tail -1
 fi
 

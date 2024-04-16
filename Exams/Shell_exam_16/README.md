@@ -18,5 +18,5 @@ Se risulta che **TOT1** <= **TOT2**, si deve chiedere all’utente, chiamandolo 
 
 Execute using:
 ```console
-$ FCP.sh esta estb `pwd`/ger1 `pwd`/ger2
+$ ./FCP.sh esta estb `pwd`/ger1 `pwd`/ger2
 ```
