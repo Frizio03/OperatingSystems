@@ -1,7 +1,8 @@
 # C system programming - Examples
 
 ## Files primals
-> 01_Working_with_files
+> 01_Working_with_files.c
+> 02_Ridirection.c
 
 An example that reads data from `infile` and prints the result into `outfile`. Note well controls on file descriptor and other features.
 
