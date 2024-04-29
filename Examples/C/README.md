@@ -28,3 +28,14 @@ An example that appends lines from `stdin` on the `outfile` using the non-sequen
 $ gcc 03_Append.c -o test03
 $ ./test03 outfile
 ```
+
+## Processes management
+
+### 04_Child_process.c
+
+An example that creates a child process with `fork()` primal and waits the child end before executing the ramaining father's code.
+
+```console
+$ gcc 04_Child_process.c -o test04
+$ ./test04
+```

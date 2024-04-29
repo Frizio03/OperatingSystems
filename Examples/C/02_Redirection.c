@@ -75,5 +75,6 @@ int main(int argc, char** argv){
 		}
 	}
 
+	//Valore di ritorno del programma eseguito correttamente
     exit(0);
 }
