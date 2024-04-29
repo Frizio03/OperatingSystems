@@ -5,7 +5,7 @@
 #include <string.h>	// Utilizzo delle stringhe
 #define PERM 0644   // Permessi di default in ottale
 
-int main(int argc, char **argv){
+int main(int argc, char** argv){
 
 	//Inizializzazioni
 	int fdin, fdout;
@@ -24,31 +24,32 @@ int main(int argc, char **argv){
         exit(2); 
 	}	
 	printf("Valore di fd = %d per %s\n", fdin, argv[1]);
-
-	//Creazione del file di output
-	fdout = creat(argv[2], PERM);
 	
-	//Controllo di eventuali errori nella creazione
-	if (fdout < 0){
+	//Creazione file di output e controllo di eventuali errori nella creazione
+	if ((fdout = creat(argv[2], PERM)) < 0){
 		printf("Errore nella creazione file per %s dato che fdout = %d\n", argv[2], fdout);
 		exit(3);
 	}
 	printf("Valore di fd = %d per %s\n", fdout, argv[2]);
 
-	do{
-		//Lettura di caratteri dal file (stdin = 0)
-		nread = read(fdin, buffer, BUFSIZ);
+	//Fino a quando riesco a leggere caratteri da fdin... (stdin = 0)
+	while((nread = read(fdin, buffer, BUFSIZ)) > 0){
 
-		//Scrittura caratteri su fdout (stdout = 1)
+		//Scrittura caratteri su fdout (stdout = 1) 
 		nwrite = write(fdout, buffer, nread);
-
+		
 		//Controllo se la scrittura è andata a buon fine
 		if (nwrite < nread){
 			printf("Errore nella scrittura dei dati su %s dato che nwrite = %d mentre nread = %d\n", argv[2], nwrite, nread);
 			exit(4);
 		}
-	}while(nread > 0);
+	}
 	
 	//Valore di ritorno del programma eseguito correttamente
 	exit(0);
+
+	/*	
+		NB: per comprendere appieno la sequenza di esecuzione delle istruzioni
+		sostituire ripettivamente 0 e 1 al posto di fdin e fdout nella read() e nella write()	
+	*/
 }
