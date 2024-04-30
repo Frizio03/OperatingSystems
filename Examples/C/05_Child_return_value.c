@@ -5,13 +5,9 @@
 
 int main(){
 
-    //Variabili per contenere PID
+    //Dichiarazione delle variabili per valori di ritorno delle primitive
     int pidFiglio, rwait;
-
-    //Variabile per contenere il valore ritornato dal figlio
-    int status;
-
-    printf("Esecuzione processo padre con PID = %d\n", getpid());
+    int status, returnValue;
 
     //Controllo su fork fallita
     if((pidFiglio = fork()) < 0){
@@ -43,6 +39,28 @@ int main(){
     else{
         printf("Errore: pid della wait non corrisponde al pid della fork\n");
         exit(3);
+    }
+
+    //Controllo sul byte basso: uscite anomale
+    
+    //ALTERNATIVA MACRO:
+    //if((status) == 0){
+    if((status & 0xFF) != 0){
+        printf("Figlio terminato in modo involontario/anomalo\n");
+        printf("Valore del byte basso: %d\n", status & 0XFF);
+    }
+    else{
+        
+        //Controllo del byte alto (valore di ritorno) con macro
+        printf("Figlio con PID %d valore di ritorno di WIFEXITED(status): %d\n", pidFiglio, WIFEXITED(status));
+        printf("Figlio con PID %d valore di exit con MACRO: %d\n", pidFiglio, WEXITSTATUS(status));
+        
+        //Selezione manuale del byte alto ed estrazione valore di ritorno
+        returnValue = status >> 8;
+        returnValue &= 0xFF;
+
+        //Stampa del valore di ritorno ottenuto manualmente
+        printf("Figlio con PID %d valore di exit: %d\n", pidFiglio, returnValue);
     }
 
 	//Valore di ritorno del programma eseguito correttamente

@@ -39,3 +39,12 @@ An example that creates a child process with `fork()` primal and waits the child
 $ gcc 04_Child_process.c -o test04
 $ ./test04
 ```
+
+### 05_Child_return_value.c
+
+An example that creates a child process with `fork()` and catches his child return value. Macro option are shown as comments or with marginal functions.
+
+```console
+$ gcc 05_Child_return_value.c -o test05
+$ ./test05
+```
