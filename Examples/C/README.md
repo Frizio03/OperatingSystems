@@ -11,7 +11,7 @@ $ gcc 01_Working_with_files.c -o test01
 $ ./test01 infile outfile
 ```
 
-### 02_Ridirection.c
+### 02_Redirection.c
 
 An example that sets `infile` as `stdin` and `outfile` as `stdout`. The program write the content from `outfile` on `stdout`using `/dev/tty` for debug messages.
 
@@ -47,4 +47,13 @@ An example that creates a child process with `fork()` and catches his child retu
 ```console
 $ gcc 05_Child_return_value.c -o test05
 $ ./test05
+```
+
+### 06_IDinfo.c
+
+An example that uses primals to get process information.
+
+```console
+$ gcc 06_IDinfo.c -o test06
+$ ./test06
 ```
