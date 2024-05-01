@@ -57,3 +57,23 @@ An example that uses primals to get process information.
 $ gcc 06_IDinfo.c -o test06
 $ ./test06
 ```
+
+## Command execution
+
+### 07_exec_family.c
+
+An example that uses primals from `exec` family.
+
+```console
+$ gcc 07_exec_family.c -o test07
+$ ./test07
+```
+
+### 08_Zombie_process.c
+
+An example that creates a child-zombie-process: the father doesn't wait his child.
+
+```console
+$ gcc 08_Zombie_process.c -o test08
+$ ./test08
+```
