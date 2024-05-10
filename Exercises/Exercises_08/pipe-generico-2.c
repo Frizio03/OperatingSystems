@@ -34,6 +34,8 @@ int main(int argc, char** argv){
     if(pid == 0){
         /*Codice del processo figlio*/
 
+        int countmsg = 0;
+
         //Chiusura del canale di pipe inutilizzato dal figlio
         close(piped[0]);
 
@@ -45,7 +47,7 @@ int main(int argc, char** argv){
 
         len = 0;
 
-        //Leggo ciascuna linea del file
+        //Leggo ciascuna carattere del file
         while(read(fd, &(buffer[len]), 1) != 0){
             len++;
 
@@ -59,11 +61,12 @@ int main(int argc, char** argv){
                 write(piped[1], buffer, len);
 
                 //Reset del contatore
+                countmsg++;
                 len = 0;
             }
         }
 
-        exit(0);
+        exit(countmsg);
     }
 
     /*Codice del processo padre*/
@@ -72,10 +75,14 @@ int main(int argc, char** argv){
     close(piped[1]);
 
     //Lettura della linea dalla pipe e stampa su stdout
-    char c;
-    while(read(piped[0], &c, 1) != 0){
-        if(c != 0){
-            printf("%c", c);
+    len = 0;
+    while(read(piped[0], &(buffer[len]), 1) != 0){
+        if(buffer[len] == '\0'){
+            printf("%s", buffer);
+            len = 0;
+        }
+        else{
+            len++;
         }
     }
 
