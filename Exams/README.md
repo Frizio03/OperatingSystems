@@ -1,4 +1,11 @@
-## Indice dei contenuti
+### Indice dei contenuti
+
+>[!WARNING]
+>
+>Controllare sempre anche le soluzioni sul sito del corso di SO!
+>(Non si possono prevedere controlli assurdi ma richiesti o eventuali errori...)
+
+## Esami parte shell
 
 * Shell_exam_01 - Creazione di file sorted e loro ubicazione in N gerarchie
 * Shell_exam_02 - Ricerca file con X linee e almeno un carattere numerico
@@ -16,3 +23,7 @@
 * Shell_exam_14 - Ricerca di file con X linee in N gerarchie e confronto dei file della prima gerarchia con tutti gli altri
 * Shell_exam_15 - Ricerca dei file '.txt' con linee < X e salvataggio lunghezza massima in variabile L
 * Shell_exam_16 - Contare i file con estensione S1 ed S2 passate all'interno di Q gerachie
+
+## Esami parte C
+
+* C_exam_01 - Figli con nipoti che eseguono il comando `rev`
