@@ -16,6 +16,10 @@ This repository contains examples and the exercises about the operativeSystem te
 * 03 - Cycles and flow control structures (if, case, for, while)
 * 04 - Link, date, background process
 * 05 - Exam examples (see Exams directory)
+* 06 - Process management with C primals
+* 07 - Advanced process management with C primals
+* 08 - Pipe primitive, multiple pipes
+* 09 - C program with pipe and process hierarcy
 
 ## Exams
 
