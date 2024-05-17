@@ -81,6 +81,9 @@ int main(int argc, char** argv){
             if(pid == 0){
                 /*Codice del processo nipote*/
 
+                //Chiusura pipe padre figlio
+                close(piped[i][1]);
+
                 //Chiusura pipe di lettura inutilizzata
                 close(p[0]);
 
