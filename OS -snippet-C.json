@@ -1,0 +1,198 @@
+{
+    "t-includes": {
+        "prefix": "t-includes",
+        "body": [
+            "#include <stdlib.h>",
+            "#include <stdio.h>",
+            "#include <string.h>",
+            "#include <unistd.h>",
+            "#include <fcntl.h>",
+            "#include <sys/wait.h>",
+            "#include <sys/stat.h>",
+            "#include <ctype.h>",
+            "",
+            "$0"
+        ]
+    },
+    "t-main": {
+        "prefix": "t-main",
+        "body": [
+            "int main(int argc, char** argv){",
+            "\t$1",
+            "\t",
+            "\t//Uscita corretta dal programma",
+            "\texit(0);",
+            "}"
+        ]
+    },
+    "t-comment": {
+        "prefix": "t-comment",
+        "body": [
+            "/* $1 */",
+            "$0"
+        ]
+    },
+    "t-debug: process": {
+        "prefix": "t-debug: process",
+        "body": [
+            "printf(\"DEBUG-Esecuzione processo ${1:PADRE} con PID = %d\\n\", getpid());",
+            "$0"
+        ]
+    },
+    "t-control: parameters": {
+        "prefix": "t-control: parameters",
+        "body": [
+            "//Controllo sul numero di parametri",
+			"if (argc ${1:<} ${2:n}){",
+            "\tprintf(\"Numero di parametri errato: argc = %d, ma dovrebbe essere >= ${3:n}\\n\", argc);",
+            "\texit(${4: });",
+            "}",
+            "",
+            "//Salvataggio del numero parametri passati da linea di comando",
+            "int ${5:N} = argc - 1;",
+            "$0"
+        ]
+    },
+    "t-pipe: normal": {
+        "prefix": "t-pipe: normal",
+        "body": [
+            "//Creazione di una pipe per consentire la comunicazione ${1:padre}-${2:figlio} e controllo esito",
+            "if ((pipe(${3:p})) < 0){",
+            "\tprintf(\"Errore nella creazione della pipe.\\n\");",
+            "\texit(${4: });",
+            "}",
+            "$0"
+        ]
+    },
+    "t-pipe: pipe_t": {
+        "prefix": "t-pipe: pipe_t",
+        "body": [
+			"//Definizione del TIPO pipe_t come array di 2 interi",
+            "typedef int pipe_t[2];",
+            "$0"
+        ]
+    },
+	"t-pipe: malloc": {
+        "prefix": "t-pipe: malloc",
+        "body": [
+            "//Allocazione della memoria per array di pipe e controllo esito",
+            "pipe_t* ${1:piped} = malloc(${2:N}*sizeof(pipe_t));",
+			"if (${1:piped} == NULL){",
+            "\tprintf(\"Errore in malloc.\\n\");",
+            "\texit(${3: });",
+            "}",
+            "$0"
+        ]
+    },
+    "t-pipe: list": {
+        "prefix": "t-pipe: list",
+        "body": [
+            "//Creazione dei canali di pipe ${1:padre}-${2:figlio} e controllo esito",
+            "for(int ${3:i} = 0; ${3:i} < N; ${3:i}++){",
+			"\tif ((pipe(piped[${3:i}])) < 0){",
+            "\t\tprintf(\"Errore nella creazione della pipe.\\n\");",
+            "\t\texit(${4: });",
+			"\t}",
+            "}",
+            "$0"
+        ]
+    },
+	"t-pipe: close-list-father": {
+        "prefix": "t-pipe: close-list-father",
+        "body": [
+            "//Chiusura lati di scrittura inutilizzati",
+            "for(int ${1:k} = 0; ${1:k} < ${2:N}; ${1:k}++){",
+			"\tclose(${3:piped}[${1:k}][1]);",
+            "}",
+            "$0"
+        ]
+    },
+	"t-pipe: close-list-child": {
+        "prefix": "t-pipe: close-list-child",
+        "body": [
+            "//Chiusura lati di lettura/scrittura inutilizzati",
+            "for(int ${1:k} = 0; ${1:k} < ${2:N}; ${1:k}++){",
+			"\tclose(${3:piped}[${1:k}][0]);",
+			"\tif(${1:k} != ${4:i})",
+			"\t\tclose(${3:piped}[${1:k}][1]);",
+            "}",
+            "$0"
+        ]
+    },
+    "t-fork: single-child": {
+        "prefix": "t-fork: single-child",
+        "body": [
+            "//Generazione di un processo ${1:figlio} e controllo esito",
+            "if ((${2:pid} = fork()) < 0){",
+            "\tprintf(\"Errore in fork.\\n\");",
+            "\texit(${3: });",
+            "}",
+            "",
+            "if(${2:pid} == 0){",
+            "\t/*Codice del processo ${4:figlio}*/",
+            "}",
+            "$0"
+        ]
+    },
+    "t-fork: multiple-child": {
+        "prefix": "t-fork: multiple-child",
+        "body": [
+            "//Generazione dei processi ${1:figli}",
+			"for(int ${2:i} = 0; ${2:i} < ${3:N}; ${2:i}++){",
+            "\t//Esecuzione della fork e controllo esito",
+			"\tif((${4:pid} = fork()) < 0){",
+			"\t\tprintf(\"Errore in fork.\\n\");",
+			"\t\texit(${5: });",
+			"\t}",
+			"",
+            "\tif(${4: pid} == 0){",
+            "\t\t/*Codice del processo ${5: figlio}*/",
+            "\t}",
+            "}",
+            "$0"
+        ]
+    },
+	"t-wait: single-child": {
+        "prefix": "t-wait: single-child",
+        "body": [
+            "//Attesa del processo ${1:figlio}",
+			"if((${2:pidFiglio} = wait(&${3:status})) < 0){",
+			"\tprintf(\"Errore in wait eseguita dal ${4:padre}.\\n\");",
+			"\texit(${5: });",
+            "}",
+			"",
+			"//Controllo su terminazioni anomale del ${1:figlio} e valore di ritorno",
+			"if(WIFEXITED(${3:status}) == 0){",
+			"\tprintf(\"${6:Figlio} con PID = %d terminato in modo anomalo\\n\", ${2:pidFiglio});",
+			"}",
+			"else{",
+			"\tritorno = WEXITSTATUS(${3:status});",
+			"\tprintf(\"${6:Figlio} con PID = %d ha ritornato %d (255 = errori)\\n\", ${2:pidFiglio}, ritorno);",
+			"}",
+            "$0"
+        ]
+    },
+	"t-wait: multiple-child": {
+        "prefix": "t-wait: multiple-child",
+        "body": [
+            "//Attesa dei processi ${1:figli}",
+			"for(int ${2:i} = 0; ${2:i} < ${3:N}; ${2:i}++){",
+            "\t//Esecuzione della wait e controllo esito",
+			"\tif((${4:pidFiglio} = wait(&${5:status})) < 0){",
+			"\t\tprintf(\"Errore in wait eseguita dal ${6:padre}\\n\");",
+			"\t\texit(${7: });",
+			"\t}",
+			"",
+			"\t//Controllo su terminazioni anomale del figlio e valore di ritorno",
+			"\tif(WIFEXITED(${5:status}) == 0){",
+			"\t\tprintf(\"${8:Figlio} con PID = %d terminato in modo anomalo\\n\", ${4:pidFiglio});",
+			"\t}",
+			"\telse{",
+			"\t\tritorno = WEXITSTATUS(${5:status});",
+			"\t\tprintf(\"${8:Figlio} con PID = %d ha ritornato %d (255 = errori)\\n\", ${4:pidFiglio}, ritorno);",
+			"\t}",
+            "}",
+            "$0"
+        ]
+    }
+}

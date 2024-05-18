@@ -69,11 +69,29 @@ $ gcc 07_exec_family.c -o test07
 $ ./test07
 ```
 
-### 08_Zombie_process.c
+### 08_zombie_process.c
 
 An example that creates a child-zombie-process: the father doesn't wait his child.
 
 ```console
-$ gcc 08_Zombie_process.c -o test08
+$ gcc 08_zombie_process.c -o test08
 $ ./test08
+```
+
+### 09_pipe.c
+
+An example that creates a pipe tunnel between father and child.
+
+```console
+$ gcc 09_pipe.c -o test09
+$ ./test09
+```
+
+### 10_multiple-pipe.c
+
+An example for maniging multiple pipe tunnels.
+
+```console
+$ gcc 10_multiple-pipe.c -o test10
+$ ./test10
 ```

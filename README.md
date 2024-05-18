@@ -1,6 +1,11 @@
 # OperativeSystems
 
-This repository contains examples and the exercises about the operativeSystem teaching in the LT - Informatics Engineering - UNIMORE
+This repository contains examples and the exercises about the operating systems teaching in the LT - Informatics Engineering - UNIMORE
+
+>[!WARNING]
+>
+>Always check solution from this repository with official solutions!
+>(We cannot expect some... surprises...)
 
 ## Examples
 
@@ -8,6 +13,11 @@ This repository contains examples and the exercises about the operativeSystem te
 * Shell code that counts file into a directory hierarcy
 * Shell code that counts hierarcy levels
 * Arguments list controls and format checks
+
+* Process management primals: fork(), wait()
+* Working with files primals
+* Pipe management, multiple pipe
+* Pipeline communication
 
 ## Exercises
 
@@ -27,3 +37,7 @@ Some past exams examples and solutions
 
 * Shell part exam examples
 * C part exam examples
+
+## Snippet C
+
+Some code snippet for C exercises and exams.
