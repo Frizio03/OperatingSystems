@@ -1,5 +1,5 @@
 ## Testo di esame parte C
-*07 Aprile 2017*
+*01 Giugno 2023*
 
 La parte in C accetta un numero variabile **N** di parametri maggiore o uguale a 2 (da controllare) che rappresentano nomi assoluti di file **F1, ..., FN**.
 Il processo padre deve generare **N** processi figli: ogni processo figlio **Pn** è associato ad uno dei file **F1, ..., FN**.
@@ -21,6 +21,8 @@ Al termine, ogni processo figlio Pn deve ritornare al padre la lunghezza della l
 nipoti;
 - una variabile di nome S (e tipo Strut) che deve servire sia per la struttura dati inviata dai figli che per
 quelle ricevute via via dal padre
+
+*Si supponga che una linea abbia lunghezza massima di 250 caratteri incluso il terminatore `'\0'`
 
 Execute using:
 ```console
