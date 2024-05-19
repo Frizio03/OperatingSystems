@@ -24,7 +24,7 @@ int main(int argc, char** argv){
 
     //Controllo sul numero di parametri
     if (argc < 3){
-        printf("Numero di parametri errato: argc = %d, ma dovrebbe essere >= 2\n", argc);
+        printf("Numero di parametri errato: argc = %d, ma dovrebbe essere >= 3\n", argc);
         exit(1);
     }
     

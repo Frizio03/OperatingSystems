@@ -18,5 +18,5 @@ Al termine, ogni processo figlio Pn deve ritornare al padre il numero di linee c
 Execute using:
 ```console
 $ make
-$ ./main
+$ ./main fileA fileB fileC
 ```
