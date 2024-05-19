@@ -84,6 +84,18 @@
             "$0"
         ]
     },
+    "t-pipe: calloc": {
+        "prefix": "t-pipe: calloc",
+        "body": [
+            "//Allocazione della memoria per array di pipe e controllo esito",
+            "pipe_t* ${1:piped} = calloc(${2:N}, sizeof(pipe_t));",
+			"if (${1:piped} == NULL){",
+            "\tprintf(\"Errore in calloc.\\n\");",
+            "\texit(${3: });",
+            "}",
+            "$0"
+        ]
+    },
     "t-pipe: list": {
         "prefix": "t-pipe: list",
         "body": [
@@ -146,7 +158,7 @@
 			"\t}",
 			"",
             "\tif(${4: pid} == 0){",
-            "\t\t/*Codice del processo ${5: figlio}*/",
+            "\t\t/*Codice del processo ${6:figlio}*/",
             "\t}",
             "}",
             "$0"
@@ -191,6 +203,17 @@
 			"\t\tritorno = WEXITSTATUS(${5:status});",
 			"\t\tprintf(\"${8:Figlio} con PID = %d ha ritornato %d (255 = errori)\\n\", ${4:pidFiglio}, ritorno);",
 			"\t}",
+            "}",
+            "$0"
+        ]
+    },
+    "t-open: openfile": {
+        "prefix": "t-open: openfile",
+        "body": [
+            "//Apertura del file e controllo esito",
+			"if((fd = open(argv[${1:n+1}], ${2:O_RDWR})) < 0){",
+			"\tprintf(\"Errore nell'apertura del file '%s'.\\n\", argv[${1:n+1}]);",
+			"\texit(${3: });",
             "}",
             "$0"
         ]
