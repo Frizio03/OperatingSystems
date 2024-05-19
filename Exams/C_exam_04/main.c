@@ -134,14 +134,17 @@ int main(int argc, char** argv){
                             //Chiusura del canale di pipe di lettura inutilizzato
                             close(pipes[n][0]);
 
-                            //Ridirezione per valori stampadi da diff
+                            //Ridirezione per valori stampadi da diff su stdout e stderr
                             close(1);
+                            open("/dev/null", O_WRONLY);
+                            close(2);
                             open("/dev/null", O_WRONLY);
 
                             execlp("diff", "diff", buffer, linea, NULL);
 
+                            //Codice che viene eseguito solo in caso di fallimento della exec
                             printf("Errore in exec!\n");
-                            exit(-1);
+                            exit(-1);                            
                         }
                             
                         /*Proseguimento codice del processo figlio*/

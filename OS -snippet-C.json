@@ -217,5 +217,14 @@
             "}",
             "$0"
         ]
+    },
+    "t-exec: exc-fail": {
+        "prefix": "t-exec: exc-fail",
+        "body": [
+            "//Codice che viene eseguito solo in caso di fallimento della exec",
+            "printf(\"Errore in exec!\\n\");",
+            "exit(-1);",
+            "$0"
+        ]
     }
 }
