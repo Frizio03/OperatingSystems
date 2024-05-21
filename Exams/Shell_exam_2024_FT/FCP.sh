@@ -1,9 +1,9 @@
 #!/bin/sh
 
 #Controllo del numero dei parametri
-if test $# -lt 2
+if test $# -lt 3
 then
-	echo ERRORE: inserire almeno 2 parametri
+	echo ERRORE: inserire almeno 3 parametri, passati: $#
 	exit 1
 fi
 
@@ -47,7 +47,6 @@ PATH=`pwd`:$PATH
 export PATH
 
 #Creazione di file temporanei per contenere i nomi assoluti
-> /tmp/absoluteDirs
 > /tmp/absoluteFiles
 
 #Esecuzione delle Z fasi
@@ -55,7 +54,7 @@ for dirAss in $*
 do
 	echo GERARCHIA: $dirAss
 	#Inizio dell'esplorazione ricorsiva di una gerachia passando come parametri la gerarchia e i nomi dei file temporanei
-	FCR.sh $dirAss /tmp/absoluteDirs /tmp/absoluteFiles
+	FCR.sh $dirAss /tmp/absoluteFiles
 done
 
 #Conteggio dei file in 4 posizione
@@ -66,6 +65,9 @@ if test $SOMMA -eq 0
 then
 	#Stampa del messaggio di errore
 	echo ERRORE: nessun file trovato in 4° posizione!
+
+	#Rimozione de file temporanei e uscita
+	rm /tmp/absoluteFiles
 	exit 5
 else
 	#Stampa del numero di file idonei trovati
@@ -87,5 +89,4 @@ done
 echo FINE
 
 #Rimozione del file temporaneo
-rm /tmp/absoluteDirs
 rm /tmp/absoluteFiles

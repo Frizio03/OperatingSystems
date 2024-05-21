@@ -22,7 +22,7 @@ do
 			#Aggiorno la variabile di controllo
 			trovato=true
 			#Aggiungo il nome assoluto del file all'elenco file
-			echo `pwd`/$file >> $3
+			echo `pwd`/$file >> $2
 		fi
 	fi
 done
@@ -30,8 +30,6 @@ done
 #Controllo se non ho torvato il 4° file
 if test $trovato = false
 then
-	#Aggiungo il nome assoluto della directory all'elenco directory
-	pwd >> $2
 	#Messaggio per spiegare che non ci sono file in quarta posizione nella dir corrente
 	echo ATTENZIONE nessun file in quarta posizione in: `pwd`
 fi
@@ -45,6 +43,6 @@ do
 		#Invocazione ricorsiva passando il nome assoluto della directory
 		#e con messaggio che indica la directory che sarà esplorata
 		echo Esplorazione di $i
-		FCR.sh `pwd`/$i $2 $3
+		FCR.sh `pwd`/$i $2
 	fi
 done
