@@ -28,8 +28,9 @@
 
 * C_exam_01 - Figli con nipoti che eseguono il comando `rev`
 * C_exam_02 - Comunicazione da figli a padre e da padre a figli concomitante
-* C_exam_03 - Comunicazione a pipeline + pipe multipla padre-figli
+* C_exam_03 - Comunicazione a **pipeline** + pipe multipla padre-figli
 * C_exam_04 - Comunicazione figlio-fratelli ed esecuzione `diff` con processi nipoti
 * C_exam_05 - Comunicazione da figli a padre e da padre a figli concomitante
-* C_exam_06 - 
+* C_exam_06 - **Sincronizzazione processi con schema di comunicazione a ring**
 * C_exam_07 - Comunicazione di lunghezza e linee da figli a padre + esecuzione comando `wc` con ridirezione
+* C_exam_08 - **Schema di comunicazione a ring**
