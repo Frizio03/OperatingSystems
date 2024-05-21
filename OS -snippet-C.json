@@ -225,7 +225,7 @@
             "//Creazione del file ${1:NOMEFILE}",
             "if((fdout = creat(\"${2:PATH}\", 0644)) < 0){",
             "\tprintf(\"Errore nella creazione del file\\n\");",
-            "exit(${3: });",
+            "\texit($3);",
             "}",
             "$0"
         ]
@@ -277,6 +277,30 @@
             "\t\t//Aggiornamento indice",
             "\t\t${1:j}++;",
             "\t}",
+            "}",
+            "$0"
+        ]
+    },
+    "t-pipeline: readfrom": {
+        "prefix": "t-pipeline: readfrom",
+        "body": [
+            "//Lettura struttura dati proveniente da pipe e controllo esito",
+            "nr = read(${1:pipe}, ${2:name}, ${3:size});",
+            "if(nr != ${3:size}){",
+            "\tprintf(\"Errore nella read da pipe con indice %d\\n\", ${4:n});",
+            "\texit($5);",
+            "}",
+            "$0"
+        ]
+    },
+    "t-pipeline: writeon": {
+        "prefix": "t-pipeline: writeon",
+        "body": [
+            "//Scrittura struttura dati su pipe e controllo esito",
+            "nw = write(${1:pipe}, ${2:name}, ${3:size});",
+            "if(nw != ${3:size}){",
+            "\tprintf(\"Errore nella scrittura su pipe con indice %d\\n\", ${4:n});",
+            "\texit($5);",
             "}",
             "$0"
         ]
