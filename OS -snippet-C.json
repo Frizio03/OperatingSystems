@@ -53,8 +53,8 @@
             "$0"
         ]
     },
-    "t-pipe: normal": {
-        "prefix": "t-pipe: normal",
+    "t-pipe: base": {
+        "prefix": "t-pipe: base",
         "body": [
             "//Creazione di una pipe per consentire la comunicazione ${1:padre}-${2:figlio} e controllo esito",
             "if ((pipe(${3:p})) < 0){",
@@ -125,8 +125,9 @@
             "//Chiusura lati di lettura/scrittura inutilizzati",
             "for(int ${1:k} = 0; ${1:k} < ${2:N}; ${1:k}++){",
 			"\tclose(${3:piped}[${1:k}][0]);",
-			"\tif(${1:k} != ${4:i})",
+			"\tif(${1:k} != ${4:i}){",
 			"\t\tclose(${3:piped}[${1:k}][1]);",
+            "\t}",
             "}",
             "$0"
         ]
@@ -218,12 +219,65 @@
             "$0"
         ]
     },
-    "t-exec: exc-fail": {
-        "prefix": "t-exec: exc-fail",
+    "t-creat: createfile": {
+        "prefix": "t-creat: createfile",
+        "body": [
+            "//Creazione del file ${1:NOMEFILE}",
+            "if((fdout = creat(\"${2:PATH}\", 0644)) < 0){",
+            "\tprintf(\"Errore nella creazione del file\\n\");",
+            "exit(${3: });",
+            "}",
+            "$0"
+        ]
+    },
+    "t-exec: exec-fail": {
+        "prefix": "t-exec: exec-fail",
         "body": [
             "//Codice che viene eseguito solo in caso di fallimento della exec",
             "printf(\"Errore in exec!\\n\");",
             "exit(-1);",
+            "$0"
+        ]
+    },
+    "t-read: readline": {
+        "prefix": "t-read: readline",
+        "body": [
+            "//Lettura di ciascun carattere del file linea del file",
+            "int ${1:j} = 0;",
+            "while(read(fd, &(${2:linea}[${1:j}]), 1) != 0){",
+            "\t//Trovato il termine di una linea",
+            "\tif(${2:linea}[${1:j}] == '\\n'){",
+            "",
+            "\t\t${3:/* Code */}",
+            "",
+            "\t\t${1:j} = 0;",
+            "\t}",
+            "\telse{",
+            "\t\t//Aggiornamento indice",
+            "\t\t${1:j}++;",
+            "\t}",
+            "}",
+            "$0"
+        ]
+    },
+    "t-read: readchar": {
+        "prefix": "t-read: readchar",
+        "body": [
+            "//Lettura di ciascun carattere del file del file",
+            "int ${1:j} = 0;",
+            "while(read(fd, &${2:ch}, 1) != 0){",
+            "\t//Trovato il termine di una linea",
+            "\tif(${2:ch} == '\\n'){",
+            "",
+            "\t\t${3:/* Code */}",
+            "",
+            "\t\t${1:j} = 0;",
+            "\t}",
+            "\telse{",
+            "\t\t//Aggiornamento indice",
+            "\t\t${1:j}++;",
+            "\t}",
+            "}",
             "$0"
         ]
     }
