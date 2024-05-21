@@ -30,3 +30,10 @@
 * C_exam_02 - Comunicazione da figli a padre e da padre a figli concomitante
 * C_exam_03 - Comunicazione a pipeline + pipe multipla padre-figli
 * C_exam_04 - Comunicazione figlio-fratelli ed esecuzione `diff` con processi nipoti
+* C_exam_04 - Comunicazione da figli a padre e da padre a figli concomitante
+
+Execute using:
+```console
+$ make
+$ ./main fileA fileB
+```
