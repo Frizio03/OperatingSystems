@@ -1,7 +1,7 @@
 ## Testo di esame parte SHELL
 *17 Aprile 2024*
 
-La parte in Shell deve prevedere un numero variabile di parametri **Q+1** (con **Q** maggiore o uguale a 2): il primo parametro deve essere un nome relativo semplice (*N**) mentre gli altri **Q** devono essere nomi assoluti di directory che identificano **Q** gerarchie (**G1, G2, …**) all’interno del file system.
+La parte in Shell deve prevedere un numero variabile di parametri **Q+1** (con **Q** maggiore o uguale a 2): il primo parametro deve essere un nome relativo semplice (**N**) mentre gli altri **Q** devono essere nomi assoluti di directory che identificano **Q** gerarchie (**G1, G2, …**) all’interno del file system.
 
 Il comportamento atteso dal programma, dopo il controllo dei parametri, è organizzato in **Q** fasi, una per ogni gerarchia.
 Il programma, per ognuna delle **Q** fasi, deve esplorare la gerarchia G corrispondente - tramite un file comandi ricorsivo, FCR.sh – e deve contare globalmente tutti i file che rispettano la seguente specifica: in ogni directory, si deve individuare il file (escludendo che sia una directory) che si trova nella 4° posizione*; nel caso in cui in una directory non si trovi un file nella 4° posizione, va riportato il suo nome assoluto con una opportuna spiegazione.
