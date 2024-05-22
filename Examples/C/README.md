@@ -104,3 +104,12 @@ An example about data pipeline that sends onwards a `num` value using a `pipe_t`
 $ gcc 11_pipeline_onwards.c -o test11
 $ ./test11
 ```
+
+### 12_pipeline_ring.c
+
+An example about data pipeline that sends into a ring route a `num` value using a `pipe_t` array.
+
+```console
+$ gcc 12_pipeline_ring.c -o test12
+$ ./test12
+```
