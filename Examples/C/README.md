@@ -95,3 +95,12 @@ An example for maniging multiple pipe tunnels.
 $ gcc 10_multiple-pipe.c -o test10
 $ ./test10
 ```
+
+### 11_pipeline_onwards.c
+
+An example about data pipeline that sends onwards a `num` value using a `pipe_t` array.
+
+```console
+$ gcc 11_pipeline_onwards.c -o test11
+$ ./test11
+```
