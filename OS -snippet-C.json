@@ -17,10 +17,11 @@
     "t-main": {
         "prefix": "t-main",
         "body": [
-            "int main(int argc, char** argv){",
+            "int main(int argc, char** argv)",
+            "{",
             "\t$1",
             "\t",
-            "\t//Uscita corretta dal programma",
+            "\t// Uscita corretta dal programma",
             "\texit(0);",
             "}"
         ]
@@ -56,8 +57,9 @@
     "t-pipe: base": {
         "prefix": "t-pipe: base",
         "body": [
-            "//Creazione di una pipe per consentire la comunicazione ${1:padre}-${2:figlio} e controllo esito",
-            "if ((pipe(${3:p})) < 0){",
+            "// Creazione di una pipe per consentire la comunicazione ${1:padre}-${2:figlio} e controllo esito",
+            "if ((pipe(${3:p})) < 0)",
+            "{",
             "\tprintf(\"Errore nella creazione della pipe.\\n\");",
             "\texit(${4: });",
             "}",
@@ -67,7 +69,7 @@
     "t-pipe: pipe_t": {
         "prefix": "t-pipe: pipe_t",
         "body": [
-			"//Definizione del TIPO pipe_t come array di 2 interi",
+			"// Definizione del TIPO pipe_t come array di 2 interi",
             "typedef int pipe_t[2];",
             "$0"
         ]
@@ -75,9 +77,10 @@
 	"t-pipe: malloc": {
         "prefix": "t-pipe: malloc",
         "body": [
-            "//Allocazione della memoria per array di pipe e controllo esito",
+            "// Allocazione della memoria per array di pipe e controllo esito",
             "pipe_t* ${1:piped} = malloc(${2:N}*sizeof(pipe_t));",
-			"if (${1:piped} == NULL){",
+			"if (${1:piped} == NULL)",
+            "{",
             "\tprintf(\"Errore in malloc.\\n\");",
             "\texit(${3: });",
             "}",
@@ -87,9 +90,10 @@
     "t-pipe: calloc": {
         "prefix": "t-pipe: calloc",
         "body": [
-            "//Allocazione della memoria per array di pipe e controllo esito",
+            "// Allocazione della memoria per array di pipe e controllo esito",
             "pipe_t* ${1:piped} = calloc(${2:N}, sizeof(pipe_t));",
-			"if (${1:piped} == NULL){",
+			"if (${1:piped} == NULL)",
+            "{",
             "\tprintf(\"Errore in calloc.\\n\");",
             "\texit(${3: });",
             "}",
@@ -99,8 +103,9 @@
     "t-pipe: list": {
         "prefix": "t-pipe: list",
         "body": [
-            "//Creazione dei canali di pipe ${1:padre}-${2:figlio} e controllo esito",
-            "for(int ${3:i} = 0; ${3:i} < N; ${3:i}++){",
+            "// Creazione dei canali di pipe ${1:padre}-${2:figlio} e controllo esito",
+            "for(int ${3:i} = 0; ${3:i} < N; ${3:i}++)",
+            "{",
 			"\tif ((pipe(piped[${3:i}])) < 0){",
             "\t\tprintf(\"Errore nella creazione della pipe.\\n\");",
             "\t\texit(${4: });",
@@ -112,8 +117,9 @@
 	"t-pipe: close-list-father": {
         "prefix": "t-pipe: close-list-father",
         "body": [
-            "//Chiusura lati di scrittura inutilizzati",
-            "for(int ${1:k} = 0; ${1:k} < ${2:N}; ${1:k}++){",
+            "// Chiusura lati di scrittura inutilizzati",
+            "for(int ${1:k} = 0; ${1:k} < ${2:N}; ${1:k}++)",
+            "{",
 			"\tclose(${3:piped}[${1:k}][1]);",
             "}",
             "$0"
@@ -122,8 +128,9 @@
 	"t-pipe: close-list-child": {
         "prefix": "t-pipe: close-list-child",
         "body": [
-            "//Chiusura lati di lettura/scrittura inutilizzati",
-            "for(int ${1:k} = 0; ${1:k} < ${2:N}; ${1:k}++){",
+            "// Chiusura lati di lettura/scrittura inutilizzati",
+            "for(int ${1:k} = 0; ${1:k} < ${2:N}; ${1:k}++)",
+            "{",
 			"\tclose(${3:piped}[${1:k}][0]);",
 			"\tif(${1:k} != ${4:i}){",
 			"\t\tclose(${3:piped}[${1:k}][1]);",
@@ -135,13 +142,15 @@
     "t-fork: single-child": {
         "prefix": "t-fork: single-child",
         "body": [
-            "//Generazione di un processo ${1:figlio} e controllo esito",
-            "if ((${2:pid} = fork()) < 0){",
+            "// Generazione di un processo ${1:figlio} e controllo esito",
+            "if ((${2:pid} = fork()) < 0)",
+            "{",
             "\tprintf(\"Errore in fork.\\n\");",
             "\texit(${3: });",
             "}",
             "",
-            "if(${2:pid} == 0){",
+            "if(${2:pid} == 0)",
+            "{",
             "\t/*Codice del processo ${4:figlio}*/",
             "}",
             "$0"
@@ -150,16 +159,19 @@
     "t-fork: multiple-child": {
         "prefix": "t-fork: multiple-child",
         "body": [
-            "//Generazione dei processi ${1:figli}",
-			"for(int ${2:i} = 0; ${2:i} < ${3:N}; ${2:i}++){",
-            "\t//Esecuzione della fork e controllo esito",
-			"\tif((${4:pid} = fork()) < 0){",
+            "// Generazione dei processi ${1:figli}",
+			"for(int ${2:i} = 0; ${2:i} < ${3:N}; ${2:i}++)",
+            "{",
+            "\t// Esecuzione della fork e controllo esito",
+			"\tif((${4:pid} = fork()) < 0)",
+            "{",
 			"\t\tprintf(\"Errore in fork.\\n\");",
 			"\t\texit(${5: });",
 			"\t}",
 			"",
             "\tif(${4: pid} == 0){",
-            "\t\t/*Codice del processo ${6:figlio}*/",
+            "\t\t/* Codice del processo ${6:figlio} */",
+            "",
             "\t}",
             "}",
             "$0"
@@ -168,14 +180,16 @@
 	"t-wait: single-child": {
         "prefix": "t-wait: single-child",
         "body": [
-            "//Attesa del processo ${1:figlio}",
-			"if((${2:pidFiglio} = wait(&${3:status})) < 0){",
+            "// Attesa del processo ${1:figlio}",
+			"if((${2:pidFiglio} = wait(&${3:status})) < 0)",
+            "{",
 			"\tprintf(\"Errore in wait eseguita dal ${4:padre}.\\n\");",
 			"\texit(${5: });",
             "}",
 			"",
 			"//Controllo su terminazioni anomale del ${1:figlio} e valore di ritorno",
-			"if(WIFEXITED(${3:status}) == 0){",
+			"if(WIFEXITED(${3:status}) == 0)",
+            "{",
 			"\tprintf(\"${6:Figlio} con PID = %d terminato in modo anomalo\\n\", ${2:pidFiglio});",
 			"}",
 			"else{",
@@ -189,18 +203,22 @@
         "prefix": "t-wait: multiple-child",
         "body": [
             "//Attesa dei processi ${1:figli}",
-			"for(int ${2:i} = 0; ${2:i} < ${3:N}; ${2:i}++){",
+			"for(int ${2:i} = 0; ${2:i} < ${3:N}; ${2:i}++)",
+            "{",
             "\t//Esecuzione della wait e controllo esito",
-			"\tif((${4:pidFiglio} = wait(&${5:status})) < 0){",
+			"\tif((${4:pidFiglio} = wait(&${5:status})) < 0)",
+            "{",
 			"\t\tprintf(\"Errore in wait eseguita dal ${6:padre}\\n\");",
 			"\t\texit(${7: });",
 			"\t}",
 			"",
 			"\t//Controllo su terminazioni anomale del figlio e valore di ritorno",
-			"\tif(WIFEXITED(${5:status}) == 0){",
+			"\tif(WIFEXITED(${5:status}) == 0)",
+            "{",
 			"\t\tprintf(\"${8:Figlio} con PID = %d terminato in modo anomalo\\n\", ${4:pidFiglio});",
 			"\t}",
-			"\telse{",
+			"\telse",
+            "{",
 			"\t\tritorno = WEXITSTATUS(${5:status});",
 			"\t\tprintf(\"${8:Figlio} con PID = %d ha ritornato %d (255 = errori)\\n\", ${4:pidFiglio}, ritorno);",
 			"\t}",
@@ -211,8 +229,9 @@
     "t-open: openfile": {
         "prefix": "t-open: openfile",
         "body": [
-            "//Apertura del file e controllo esito",
-			"if((fd = open(argv[${1:n+1}], ${2:O_RDWR})) < 0){",
+            "// Apertura del file e controllo esito",
+			"if((fd = open(argv[${1:n+1}], ${2:O_RDONLY})) < 0)",
+            "{",
 			"\tprintf(\"Errore nell'apertura del file '%s'.\\n\", argv[${1:n+1}]);",
 			"\texit(${3: });",
             "}",
@@ -222,10 +241,11 @@
     "t-creat: createfile": {
         "prefix": "t-creat: createfile",
         "body": [
-            "//Creazione del file ${1:NOMEFILE}",
-            "if((fdout = creat(\"${2:PATH}\", 0644)) < 0){",
+            "// Creazione del file ${1:NOMEFILE}",
+            "if((fdout = creat(\"${2:PATH}\", 0644)) < 0)",
+            "{",
             "\tprintf(\"Errore nella creazione del file\\n\");",
-            "\texit($3);",
+            "\texit(${3: });",
             "}",
             "$0"
         ]
@@ -233,7 +253,7 @@
     "t-exec: exec-fail": {
         "prefix": "t-exec: exec-fail",
         "body": [
-            "//Codice che viene eseguito solo in caso di fallimento della exec",
+            "// Codice che viene eseguito solo in caso di fallimento della exec",
             "printf(\"Errore in exec!\\n\");",
             "exit(-1);",
             "$0"
@@ -244,15 +264,18 @@
         "body": [
             "//Lettura di ciascun carattere del file linea del file",
             "int ${1:j} = 0;",
-            "while(read(fd, &(${2:linea}[${1:j}]), 1) != 0){",
+            "while(read(fd, &(${2:linea}[${1:j}]), 1) != 0)",
+            "{",
             "\t//Trovato il termine di una linea",
-            "\tif(${2:linea}[${1:j}] == '\\n'){",
+            "\tif(${2:linea}[${1:j}] == '\\n')",
+            "\t{",
             "",
             "\t\t${3:/* Code */}",
             "",
             "\t\t${1:j} = 0;",
             "\t}",
-            "\telse{",
+            "\telse",
+            "\t{",
             "\t\t//Aggiornamento indice",
             "\t\t${1:j}++;",
             "\t}",
@@ -267,7 +290,8 @@
             "int ${1:j} = 0;",
             "while(read(fd, &${2:ch}, 1) != 0){",
             "\t//Trovato il termine di una linea",
-            "\tif(${2:ch} == '\\n'){",
+            "\tif(${2:ch} == '\\n')",
+            "{",
             "",
             "\t\t${3:/* Code */}",
             "",
@@ -286,9 +310,10 @@
         "body": [
             "//Lettura struttura dati proveniente da pipe e controllo esito",
             "nr = read(${1:pipe}, ${2:name}, ${3:size});",
-            "if(nr != ${3:size}){",
+            "if(nr != ${3:size})",
+            "{",
             "\tprintf(\"Errore nella read da pipe con indice %d\\n\", ${4:n});",
-            "\texit($5);",
+            "\texit(${5: });",
             "}",
             "$0"
         ]
@@ -298,9 +323,10 @@
         "body": [
             "//Scrittura struttura dati su pipe e controllo esito",
             "nw = write(${1:pipe}, ${2:name}, ${3:size});",
-            "if(nw != ${3:size}){",
+            "if(nw != ${3:size})",
+            "{",
             "\tprintf(\"Errore nella scrittura su pipe con indice %d\\n\", ${4:n});",
-            "\texit($5);",
+            "\texit(${5: });",
             "}",
             "$0"
         ]
