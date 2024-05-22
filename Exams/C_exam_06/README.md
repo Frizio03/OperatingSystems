@@ -26,3 +26,9 @@ Al termine dell’esecuzione, ogni figlio Pq ritorna al padre il numero (suppost
 - una variabile di nome **Q** per il numero di processi figli;
 - una variabile di nome **q** per l’indice dei processi figli;
 - una variabile di nome **L** per la lunghezza in linee del file F.
+
+Execute using:
+```console
+$ make
+$ ./main `pwd`/fileA 2 s n f
+```
