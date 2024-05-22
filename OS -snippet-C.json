@@ -100,8 +100,8 @@
             "$0"
         ]
     },
-    "t-pipe: list": {
-        "prefix": "t-pipe: list",
+    "t-pipe: generate-list": {
+        "prefix": "t-pipe: generate-list",
         "body": [
             "// Creazione dei canali di pipe ${1:padre}-${2:figlio} e controllo esito",
             "for(int ${3:i} = 0; ${3:i} < N; ${3:i}++)",
@@ -164,7 +164,7 @@
             "{",
             "\t// Esecuzione della fork e controllo esito",
 			"\tif((${4:pid} = fork()) < 0)",
-            "\t{",
+            "{",
 			"\t\tprintf(\"Errore in fork.\\n\");",
 			"\t\texit(${5: });",
 			"\t}",
@@ -327,6 +327,62 @@
             "{",
             "\tprintf(\"Errore nella scrittura su pipe con indice %d\\n\", ${4:n});",
             "\texit(${5: });",
+            "}",
+            "$0"
+        ]
+    },
+    "t-pipeline: close-list-father": {
+        "prefix": "t-pipeline: close-list-father",
+        "body": [
+            "// Chiusura lati di pipe inutilizzati",
+            "for(int ${1:k} = 0; ${1:k} < ${2:N}; ${1:k}++)",
+            "{",
+            "\tif(${1:k} != ${2:N}-1)",
+			"\t\tclose(${3:piped}[${1:k}][0]);",
+            "",
+            "\tclose(${3:piped}[${1:k}][1]);",
+            "}",
+            "$0"
+        ]
+    },
+	"t-pipeline: close-list-child": {
+        "prefix": "t-pipeline: close-list-child",
+        "body": [
+            "// Chiusura lati di pipe inutilizzati",
+            "for(int ${1:k} = 0; ${1:k} < ${2:N}; ${1:k}++)",
+            "{",
+            "\tif(${4:i} == 0 || ${1:k} != ${4:i}-1)",
+			"\t\tclose(${3:piped}[${1:k}][0]);",
+			"\tif(${1:k} != ${4:i})",
+			"\t\tclose(${3:piped}[${1:k}][1]);",
+            "}",
+            "$0"
+        ]
+    },
+    "t-ring: close-list-father": {
+        "prefix": "t-ring: close-list-father",
+        "body": [
+            "// Chiusura lati di pipe inutilizzati",
+            "for(int ${1:k} = 0; ${1:k} < ${2:N}; ${1:k}++)",
+            "{",
+			"\tclose(${3:piped}[${1:k}][0]);",
+            "\tclose(${3:piped}[${1:k}][1]);",
+            "}",
+            "$0"
+        ]
+    },
+	"t-ring: close-list-child": {
+        "prefix": "t-ring: close-list-child",
+        "body": [
+            "// Chiusura lati di pipe inutilizzati",
+            "for(int ${1:k} = 0; ${1:k} < ${2:N}; ${1:k}++)",
+            "{",
+			"\tif(${1:k} != ${4:i}){",
+			"\t\tclose(${3:piped}[${1:k}][0]);",
+            "\t}",
+            "\tif(${1:k} != (${4:i}+1)%${2:N}){",
+			"\t\tclose(${3:piped}[${1:k}][1]);",
+            "\t}",
             "}",
             "$0"
         ]
