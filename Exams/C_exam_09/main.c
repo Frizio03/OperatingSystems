@@ -136,7 +136,7 @@ int main(int argc, char **argv)
                         exit(-1);
                     }
 
-                    ritorno = j;
+                    ritorno = j + 1;
                     j = 0;
                 }
                 else

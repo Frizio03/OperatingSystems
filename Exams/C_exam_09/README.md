@@ -22,3 +22,9 @@ Al termine dell’esecuzione, ogni figlio **Pn** ritorna al padre la lunghezza d
 - una variabile di nome **n** per l’indice dei processi figli;
 - una variabile di nome **linea** per la linea letta correntemente dai figli dal proprio file;
 - una variabile di nome **tutteLinee** per l’array con tutte le linee lette correntemente dai figli.
+
+Execute using:
+```console
+$ make
+$ ./main fileA fileB 3
+```
