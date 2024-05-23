@@ -97,9 +97,9 @@ int main(int argc, char** argv){
                 }
 
                 //Lettura ed eventuale sostituzione
-                trasformazioni = 0;
+                trasformazioni = 0L;
                 while(read(fd, &ch, 1) != 0){
-                    if(ch != '\n' && islower(ch)){
+                    if(islower(ch)){
                         lseek(fd, -1L, SEEK_CUR);
                         newch = toupper(ch);
                         write(fd, &newch, 1);
@@ -128,7 +128,7 @@ int main(int argc, char** argv){
             }
 
             //Lettura ed eventuale sostituzione
-            trasformazioni = 0;
+            trasformazioni = 0L;
             while(read(fd, &ch, 1) != 0){
                 if(isdigit(ch)){
                     lseek(fd, -1L, SEEK_CUR);
@@ -144,12 +144,6 @@ int main(int argc, char** argv){
             //Attesa del processo nipote
             if((pidFiglio = wait(&status)) < 0){
                 printf("Errore in wait eseguita dal figlio\n");
-                exit(-1);
-            }
-
-            if(pid != pidFiglio){
-                printf("Errore pid ritornati da wait e fork non coincidono\n");
-                exit(-1);
             }
 
             if(WIFEXITED(status) == 0){
