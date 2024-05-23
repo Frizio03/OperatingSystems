@@ -35,3 +35,7 @@
 * C_exam_07 - Comunicazione di lunghezza e linee da figli a padre + esecuzione comando `wc` con ridirezione
 * C_exam_08 - **Schema di comunicazione a ring**
 * C_exam_09 - Scrittura alternata di linee su file `fcreato` con comunicazione a pipeline da figlio P0 a padre
+* C_exam_10 - Lettura e scrittura linee con comunicazione pipe figlio-padre
+* C_exam_11 - 
+* C_exam_12 - 
+* C_exam_13 - 
