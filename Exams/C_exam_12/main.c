@@ -54,7 +54,7 @@ int main(int argc, char **argv)
         if ((pipe(piped_pf[n])) < 0)
         {
             printf("Errore nella creazione della pipe.\n");
-            exit(3);
+            exit(4);
         }
     }
 
@@ -65,7 +65,7 @@ int main(int argc, char **argv)
         if ((pid = fork()) < 0)
         {
             printf("Errore in fork.\n");
-            exit(4);
+            exit(5);
         }
 
         if (pid == 0)
@@ -183,7 +183,7 @@ int main(int argc, char **argv)
         if ((pidFiglio = wait(&status)) < 0)
         {
             printf("Errore in wait eseguita dal padre\n");
-            exit(5);
+            exit(6);
         }
 
         // Controllo su terminazioni anomale del figlio e valore di ritorno
