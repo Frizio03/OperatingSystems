@@ -164,7 +164,7 @@
             "{",
             "\t// Esecuzione della fork e controllo esito",
 			"\tif((${4:pid} = fork()) < 0)",
-            "{",
+            "\t{",
 			"\t\tprintf(\"Errore in fork.\\n\");",
 			"\t\texit(${5: });",
 			"\t}",
