@@ -37,5 +37,5 @@
 * C_exam_09 - Scrittura alternata di linee su file `fcreato` con comunicazione a pipeline da figlio P0 a padre
 * C_exam_10 - Lettura e scrittura linee con comunicazione pipe figlio-padre
 * C_exam_11 - Invio di struct in avanti su pipeline e comunicazione padre-figli
-* C_exam_12 - 
+* C_exam_12 - Comunicazione da figli a padre e da padre a figli concomitante
 * C_exam_13 - 
