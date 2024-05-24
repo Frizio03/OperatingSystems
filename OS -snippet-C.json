@@ -262,7 +262,7 @@
     "t-read: readline": {
         "prefix": "t-read: readline",
         "body": [
-            "//Lettura di ciascun carattere del file linea del file",
+            "//Lettura di ciascun carattere del file e inserimento nella linea corrente",
             "int ${1:j} = 0;",
             "while(read(fd, &(${2:linea}[${1:j}]), 1) != 0)",
             "{",
