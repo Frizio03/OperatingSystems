@@ -30,5 +30,5 @@ Al termine, ogni processo figlio **Pn** deve ritornare al padre il valore ritorn
 Execute using:
 ```console
 $ make
-$ ./main 
+$ ./main fileProva questo ha linee
 ```

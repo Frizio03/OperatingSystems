@@ -38,4 +38,4 @@
 * C_exam_10 - Lettura e scrittura linee con comunicazione pipe figlio-padre
 * C_exam_11 - Invio di struct in avanti su pipeline e comunicazione padre-figli
 * C_exam_12 - Comunicazione da figli a padre e da padre a figli concomitante
-* C_exam_13 - 
+* C_exam_13 - Comunicazione in pipeline e creazione processi nipoti che esguono il comando `grep`

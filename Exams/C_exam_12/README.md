@@ -20,5 +20,5 @@ Al termine, ogni processo figlio **Pn** deve ritornare al padre il numero di lin
 Execute using:
 ```console
 $ make
-$ ./main 
+$ ./main fileA fileB fileC
 ```
