@@ -25,5 +25,5 @@ Al termine dell’esecuzione, ogni figlio **Pn** ritorna al padre l’ultimo car
 Execute using:
 ```console
 $ make
-$ ./main 
+$ ./main fileA fileB fileC
 ```

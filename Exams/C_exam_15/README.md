@@ -23,5 +23,5 @@ padre deve stampare su standard output il PID di ogni figlio e il valore ritorna
 Execute using:
 ```console
 $ make
-$ ./main 
+$ ./main fileA fileB fileC fout.txt
 ```
