@@ -203,12 +203,12 @@ int main(int argc, char **argv)
         // Controllo su terminazioni anomale del figlio e valore di ritorno
         if ((status & 0xFF) != 0)
         {
-            printf("Figlio con PID = %d terminato in modo anomalo (segnale)\n", pidFiglio);
+            printf("Figlio con PID = %d terminato in modo anomalo (segnale) quindi il file '%s' risulta DIVERSO da '%s'\n", pidFiglio, argv[argc - 1], argv[i + 1]);
         }
         else
         {
             ritorno = (status >> 8) & 0xFF;
-            printf("Figlio con PID = %d ha ritornato %d quindi il file '%s' risulta uguale a '%s'\n", pidFiglio, ritorno, argv[argc - 1], argv[i + 1]);
+            printf("Figlio con PID = %d ha ritornato %d quindi il file '%s' risulta UGUALE a '%s'\n", pidFiglio, ritorno, argv[argc - 1], argv[i + 1]);
         }
     }
 
