@@ -43,7 +43,7 @@
 | C_exam_12     | 17 Gennaio 2024       | Comunicazione da figli a padre e da padre a figli concomitante
 | C_exam_13     | 14 Febbraio 2024      | Comunicazione in pipeline e creazione processi nipoti che esguono il comando `grep`
 | C_exam_14     | 07 Settembre 2022     | Lettura di caratteri dispari da più file e invio in avanti di array su pipeline
-| C_exam_15     | 25 Gennaio 2023       | TODO
+| C_exam_15     | 25 Gennaio 2023       | Lettura di 2 caratteri alla volta e comunicazione al padre con file di lunghezza ignota e differente
 | C_exam_16     | 22 Febbraio 2023      | TODO
 | C_exam_17     | 08 Settembre 2021     | TODO
 | C_exam_18     | 19 Gennaio 2022       | TODO
