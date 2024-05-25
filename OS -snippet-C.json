@@ -386,5 +386,23 @@
             "}",
             "$0"
         ]
+    },
+    "t-termine: finito": {
+        "prefix": "t-termine: finito",
+        "body": [
+            "// Funzione per controllo stato di tutti i processi",
+            "int termine(int *finito, int dim)",
+            "{",
+            "\tfor (int i = 0; i < dim; i++)",
+            "\t{",
+            "\t\tif (!finito[i])",
+            "\t\t{",
+            "\t\t\treturn 0;",
+            "\t\t}",
+            "\t}",
+            "\treturn 1;",
+            "}",
+            "$0"
+        ]
     }
 }
