@@ -30,6 +30,7 @@ This repository contains examples and the exercises about the operating systems 
 * 07 - Advanced process management with C primals
 * 08 - Pipe primitive, multiple pipes
 * 09 - C program with pipe and process hierarcy
+* 10 - Signals and signal's handlers
 
 ## Exams
 

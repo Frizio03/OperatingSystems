@@ -63,7 +63,7 @@ int main(int argc, char **argv)
     srand(time(NULL));
 
     // Creazione del file fcreato
-    if ((fdout = creat("fcreato", 0644)) < 0)
+    if ((fdout = creat("files/fcreato", 0644)) < 0)
     {
         printf("Errore nella creazione del file\n");
         exit(3);
