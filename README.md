@@ -1,6 +1,6 @@
-# OperativeSystems
+# OperatingSystems
 
-This repository contains examples and the exercises about the operating systems teaching in the LT - Informatics Engineering - UNIMORE
+This repository contains examples and the exercises about the operating systems teaching into the LT - Informatics Engineering - UNIMORE
 
 >[!WARNING]
 >
@@ -36,8 +36,8 @@ This repository contains examples and the exercises about the operating systems 
 
 Some past exams examples and solutions
 
-* Shell part exam examples
-* C part exam examples
+* Exam examples about shell section
+* Exam examples about C section
 
 ## Snippet C
 
