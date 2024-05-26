@@ -10,6 +10,7 @@
 // Definizione del TIPO pipe_t come array di 2 interi
 typedef int pipe_t[2];
 
+// Variabile globale del processo a cui accede la funzione handler replace
 int istruzione = 0;
 
 // Funzioni handler

@@ -6,7 +6,7 @@
 $ make
 ```
 
-### Esecuzione e passaggip parametri
+### Esecuzione e passaggio parametri
 
 ```console
 $ ./EsameA.out files/fileA files/fileB files/fileC files/fileD 3
