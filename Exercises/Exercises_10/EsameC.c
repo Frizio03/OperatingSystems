@@ -7,20 +7,14 @@
 #include <sys/stat.h>
 #include <signal.h>
 
-/*
-*
-* ATTENZIONE:
-* questo codice genera errori: non funziona
-*
-*/
-
 // Definizione del TIPO pipe_t come array di 2 interi
 typedef int pipe_t[2];
 
 int istruzione = 0;
 
 // Funzioni handler
-void nothing(int sig) {
+void nothing(int sig)
+{
     printf("DEBUG - Sostituzione negata al figlio con PID = %d\n", getpid());
 }
 
@@ -84,7 +78,7 @@ int main(int argc, char **argv)
             exit(5);
         }
 
-        if ((pipe(piped_fp[i])) < 0)
+        if ((pipe(piped_pf[i])) < 0)
         {
             printf("Errore nella creazione della pipe padre-figlio.\n");
             exit(6);
@@ -132,11 +126,10 @@ int main(int argc, char **argv)
             // Lettura di ciascun carattere del file...
             while (read(fd, &ch, 1) != 0)
             {
-
                 // Trovata occorrenza di Cx
                 if (ch == Cx)
                 {
-                    // Invio della posizione del carattere al padre
+                    // Ricavo ed invio della posizione del carattere al padre
                     pos = lseek(fd, 0L, SEEK_CUR);
                     write(piped_fp[i][1], &pos, sizeof(pos));
 
@@ -147,12 +140,17 @@ int main(int argc, char **argv)
                     // Attesa di sitruzioni da parte del padre
                     pause();
 
+                    // In caso di sostituzione l'ahndler ha settato questa variabile
                     if (istruzione)
                     {
-                        read(piped_pf[i][0], &ch, 1);
-                        printf("ch vale '%c'\n", ch);
+                        // Lettura del nuovo carattere da pipe
+                        read(piped_pf[i][0], &letto, 1);
+
+                        // Posizionemento del cursore
                         lseek(fd, -1L, SEEK_CUR);
-                        write(fd, &ch, 1);
+
+                        // Scrittura carattere e aggiornamento variabili
+                        write(fd, &letto, 1);
                         sost++;
                         istruzione = 0;
                     }
@@ -191,11 +189,10 @@ int main(int argc, char **argv)
                 finito = 0;
 
                 // Stampa informazioni su stdout
-                printf("Figlio di indice i = %d ha trovato carattere '%c' in poszione %ld nel file '%s', sostituirlo?\n", i, Cx, pos, argv[i + 1]);
+                printf("Figlio di indice i = %d ha trovato carattere '%c' in poszione %ld nel file '%s'.\nInserire carattere con cui sostituirlo oppure premere invio.\n", i, Cx, pos, argv[i + 1]);
 
                 // Attesa azione dell'utente
-                read(1, &letto, 1);
-                //printf("DEBUG - processo %d letto carattere '%c' da INPUT con nr = %d\n", getpid(), letto, nr);
+                read(0, &letto, 1);
 
                 // Si attende che il processo figlio possa ricevere il segnale
                 sleep(1);
@@ -204,13 +201,17 @@ int main(int argc, char **argv)
                 if (letto != '\n')
                 {
                     // Lettura di eliminazione dello \n in eccesso
-                    read(1, &scarto, 1);
+                    read(0, &scarto, 1);
 
-                    write(piped_pf[i][1], &letto, 1);
+                    // Invio del segnale di sostituzione autorizzata al processo i
                     kill(pid[i], SIGUSR2);
+
+                    // Invio del carattere letto al padre
+                    write(piped_pf[i][1], &letto, 1);
                 }
                 else
                 {
+                    // Invio del segnale di sostituzione non autorizzata al processo i
                     kill(pid[i], SIGUSR1);
                 }
             }
