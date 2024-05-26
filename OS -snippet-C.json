@@ -291,7 +291,7 @@
             "while(read(fd, &${2:ch}, 1) != 0){",
             "\t//Trovato il termine di una linea",
             "\tif(${2:ch} == '\\n')",
-            "{",
+            "\t{",
             "",
             "\t\t${3:/* Code */}",
             "",
