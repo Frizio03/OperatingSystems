@@ -42,5 +42,5 @@ CCCCCCCCCCCAAAAAAAAAAADDDDDDDDDDDBBBBBBBBBBB
 Execute using:
 ```console
 $ make
-$ ./main 
+$ ./main f1.txt f2.txt 11
 ```

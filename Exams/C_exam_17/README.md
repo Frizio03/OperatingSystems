@@ -48,5 +48,5 @@ Figlio con pid=105900 ha ritornato 43 (255 = errore)
 Execute using:
 ```console
 $ make
-$ ./main 
+$ ./main f1.txt f2.txt
 ```
