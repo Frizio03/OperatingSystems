@@ -7,7 +7,7 @@
 
 ## Esami parte shell
 | Nome          | Data                  | Descrizione
-|---------------|-----------------------| -------------------------------------------------------------------------------------------------------------
+|---------------|-------------------- --| -------------------------------------------------------------------------------------------------------------
 | Shell_exam_01 | 07 Aprile 2017        | Creazione di file sorted e loro ubicazione in N gerarchie
 | Shell_exam_02 | 15 Febbario 2017      | Ricerca file con X linee e almeno un carattere numerico
 | Shell_exam_03 | 18 Gennaio 2017       | Ricerca di tutte le directory con nome DR con almeno un file con carattere numerico al loro interno
@@ -45,6 +45,6 @@
 | C_exam_14     | 07 Settembre 2022     | Lettura di caratteri dispari da più file e invio in avanti di array su pipeline
 | C_exam_15     | 25 Gennaio 2023       | Lettura di 2 caratteri alla volta e comunicazione al padre con file di lunghezza ignota e differente
 | C_exam_16     | 22 Febbraio 2023      | Somma di caratteri numerici letti da file e comunicazione al padre
-| C_exam_17     | 08 Settembre 2021     | TODO
+| C_exam_17     | 08 Settembre 2021     | Lettura di linee pari/dispari associate a 2N processi di indice pari/dispari
 | C_exam_18     | 19 Gennaio 2022       | TODO
 | C_exam_19     | 16 Febbraio 2022      | TODO

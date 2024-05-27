@@ -1,5 +1,5 @@
 ## Testo di esame parte C
-*Settembre 2021*
+*08 Settembre 2021*
 
 La parte in C accetta un numero variabile di parametri **N** maggiore o uguale a 1 che rappresentano **N** nomi di file (**F1, …FN**). Il processo padre deve, per prima cosa, creare nella directory corrente un file **fcreato** e terminazione `.log`.
 
@@ -35,15 +35,15 @@ linea numero 3 lunga 38
 
 Figlio con pid=105897 ha ritornato 42 (255 = errore)
 Figlio con pid=105898 ha ritornato 41 (255 = errore)
-Figlio con pid=105900 ha ritornato 43 (255 = errore)
 Figlio con pid=105899 ha ritornato 30 (255 = errore)
+Figlio con pid=105900 ha ritornato 43 (255 = errore)
 
 ### NOTA BENE NEL FILE C main.c SI USI OBBLIGATORIAMENTE:
-- una variabile di nome N per il numero di file;
-- una variabile di nome n per l’indice dei processi figli;
-- una variabile di nome linea per la linea corrente (pari/dispari) letta dai figli dal proprio file;
-- una variabile di nome nro per il valore massimo della lunghezza delle linee pari/dispari dei file;
-- una variabile di nome fcreato per il file descriptor del file creato dal padre.
+- una variabile di nome **N** per il numero di file;
+- una variabile di nome **n** per l’indice dei processi figli;
+- una variabile di nome **linea** per la linea corrente (pari/dispari) letta dai figli dal proprio file;
+- una variabile di nome **nro** per il valore massimo della lunghezza delle linee pari/dispari dei file;
+- una variabile di nome **fcreato** per il file descriptor del file creato dal padre.
 
 Execute using:
 ```console
