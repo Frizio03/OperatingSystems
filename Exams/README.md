@@ -46,5 +46,5 @@
 | C_exam_15     | 25 Gennaio 2023       | Lettura di 2 caratteri alla volta e comunicazione al padre con file di lunghezza ignota e differente
 | C_exam_16     | 22 Febbraio 2023      | Somma di caratteri numerici letti da file e comunicazione al padre
 | C_exam_17     | 08 Settembre 2021     | Lettura di linee pari/dispari associate a 2N processi di indice pari/dispari
-| C_exam_18     | 19 Gennaio 2022       | TODO
+| C_exam_18     | 19 Gennaio 2022       | Lettura di blocchi di byte dello stesso file da parte di coppie di processi e loro comunicazione (2N processi)
 | C_exam_19     | 16 Febbraio 2022      | TODO
