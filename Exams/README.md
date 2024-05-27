@@ -7,7 +7,7 @@
 
 ## Esami parte shell
 | Nome          | Data                  | Descrizione
-|---------------|-------------------- --| -------------------------------------------------------------------------------------------------------------
+|---------------|-----------------------| -------------------------------------------------------------------------------------------------------------
 | Shell_exam_01 | 07 Aprile 2017        | Creazione di file sorted e loro ubicazione in N gerarchie
 | Shell_exam_02 | 15 Febbario 2017      | Ricerca file con X linee e almeno un carattere numerico
 | Shell_exam_03 | 18 Gennaio 2017       | Ricerca di tutte le directory con nome DR con almeno un file con carattere numerico al loro interno
