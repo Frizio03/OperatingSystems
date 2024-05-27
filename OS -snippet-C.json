@@ -36,7 +36,7 @@
     "t-debug: process": {
         "prefix": "t-debug: process",
         "body": [
-            "printf(\"DEBUG-Esecuzione processo ${1:PADRE} con PID = %d\\n\", getpid());",
+            "printf(\"DEBUG-Esecuzione processo ${1:PADRE} con PID = %d e indice %d associato al file %s\\n\", getpid(), ${2:n}, argv[${3:n+1}]);",
             "$0"
         ]
     },
