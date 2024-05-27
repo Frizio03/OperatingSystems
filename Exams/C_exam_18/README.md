@@ -1,14 +1,17 @@
 ## Testo di esame parte C
 *19 Gennaio 2022*
 
+>[!WARNING]
+>Rispetto al testo di esame originale è stata effettuata una variazione!
+
 La parte in C accetta un numero variabile di parametri **N+1** con **N** maggiore o uguale a 1: i primi **N** rappresentano nomi di file (**F1, …FN**), mentre l’ultimo parametro **C** rappresenta un numero intero strettamente positivo e dispari (da controllare): si può ipotizzare che la lunghezza di tutti i file sia uguale, pari e multiplo intero di C (senza verificarlo).
 
-Il processo padre deve generare **2N** processi figli (**P0 … P2N-1**); tali processi figli costituiscono **N** coppie di processi: ogni coppia **Ci** è composta dal processo **Pi** (primo processo della coppia) e dal processo **Pi+N** (secondo processo della coppia), con i variabile da 0 a N-1.
+Il processo padre deve generare **2N** processi figli (**P0 … P2N-1**); tali processi figli costituiscono **N** coppie di processi: ogni coppia **Ci** è composta dal processo **Pi** (primo processo della coppia) e dal processo **Pi+1** (secondo processo della coppia), con i variabile da 0 a N-1.
 
 Ogni coppia di processi figli **Ci** è associata ad uno dei file **Fi+1**. Il secondo processo della coppia deve creare un file il cui nome risulti dalla concatenazione del nome del file associato alla coppia con la stringa `.mescolato` (ad esempio se il file associato è `/tmp/pippo.txt`, il file creato si deve chiamare `/tmp/pippo.txt.mescolato`).
 
 >[!NOTE]
->Se N è 3 (i varia da 0 a 2), le coppie di processi e i file associati sono P0-P3 per F1, P1-P4 per F2 e P2-P5 per F3.
+>Se N è 3 (i varia da 0 a 2), le coppie di processi e i file associati sono P0-P1 per F1, P2-P3 per F2 e P4-P5 per F3.
 
 Tutte le coppie **Ci** di processi figli eseguono concorrentemente leggendo il proprio file associato: in particolare, il primo processo di ogni coppia deve leggere la prima metà del file associato, mentre il secondo processo la seconda metà del file; inoltre, per entrambi i processi di ogni coppia la lettura deve avvenire a blocchi di dati di grandezza uguale a **C** byte.
 
