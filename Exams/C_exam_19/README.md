@@ -28,5 +28,5 @@ Al termine, ogni processo figlio **Pi** deve ritornare al padre il valore intero
 Execute using:
 ```console
 $ make
-$ ./main 
+$ ./main f1.txt f2.txt f3.txt f4.txt h
 ```
